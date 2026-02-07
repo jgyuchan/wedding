@@ -59,7 +59,7 @@ export const weddingConfig = {
     mapNaverCoordinates: "126.792912,37.497858,15,0,0,0,dh",
     transportation: {
       subway: "1호선 부천역 3번 출구 -> 소신여객터미널 일반버스 3번 탑승",
-      bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56, 56-1\n마을버스: 013-1, 013-2",
+      bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
     },
     parking: "교회 주차장 이용 가능",
     groomShuttle: {
