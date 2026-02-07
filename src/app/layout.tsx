@@ -24,9 +24,9 @@ export default function RootLayout({
         <GlobalStyle />
         <CacheManager />
         
-        {/* 노래 주소 앞에 /wedding을 추가하여 정확한 위치를 알려줍니다 */}
+        {/* 노래 경로 앞에 /wedding을 붙여 정확한 위치를 고정했습니다 */}
         <audio 
-          src="/wedding/bgm.mp3?v=2" 
+          src="/wedding/bgm.mp3?v=3" 
           autoPlay 
           loop 
           style={{ display: 'none' }} 
