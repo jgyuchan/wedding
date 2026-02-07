@@ -13,14 +13,15 @@ export const weddingConfig = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
     description: "2026년 5월 23일 토요일 12시 30분",
-    ogImage: "/images/main_photo.jpg",
+    ogImage: "/images/gallery/규찬하영1.jpg", 
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
 
+  // 메인 화면: 메인으로 쓸 사진 파일명을 적어주세요
   main: {
     title: "Wedding Invitation",
-    image: "/images/ha0h-1fsi-bqt3.jpg", // 메인 사진 경로 확인
+    image: "/images/gallery/규찬하영1.jpg", 
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -40,10 +41,10 @@ export const weddingConfig = {
   },
 
   venue: {
-    name: "원미동교회 본당", // 티맵, 카카오맵 도착지 이름
+    name: "원미동교회", // 티맵 목적지
     address: "경기도 부천시 원미구 원미로164번길 19-19",
     tel: "032-657-2323",
-    naverMapId: "원미동교회 본당", // 네이버 지도 도착지 이름 (이름을 일치시킴)
+    naverMapId: "원미동교회", // 네이버 지도 목적지
     coordinates: {
       latitude: 37.497858,
       longitude: 126.792912,
@@ -56,24 +57,20 @@ export const weddingConfig = {
       bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
     },
     parking: "교회 주차장 이용 가능",
-    // 칸을 유지해야 에러가 나지 않습니다.
-    groomShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } },
-    brideShuttle: { location: "", departureTime: "", contact: { name: "" , tel: "" } }
+    // 배차 안내를 아예 정의하지 않아 화면에서 사라지게 시도합니다.
   },
 
+  // 갤러리: 규찬하영2.jpg ~ 규찬하영7.jpg로 설정
   gallery: {
     layout: "grid" as GalleryLayout,
     position: "bottom" as GalleryPosition,
     images: [
-      "/images/gallery/image1.jpg",
-      "/images/gallery/image2.jpg",
-      "/images/gallery/image3.jpg",
-      "/images/gallery/image4.jpg",
-      "/images/gallery/image5.jpg",
-      "/images/gallery/image6.jpg",
-      "/images/gallery/image7.jpg",
-      "/images/gallery/image8.jpg",
-      "/images/gallery/image9.jpg",
+      "/images/gallery/규찬하영2.jpg",
+      "/images/gallery/규찬하영3.jpg",
+      "/images/gallery/규찬하영4.jpg",
+      "/images/gallery/규찬하영5.jpg",
+      "/images/gallery/규찬하영6.jpg",
+      "/images/gallery/규찬하영7.jpg",
     ],
   } as GalleryConfig,
 
