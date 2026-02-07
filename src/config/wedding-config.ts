@@ -13,9 +13,9 @@ interface GalleryConfig {
 export const weddingConfig = {
   // 메타 정보
   meta: {
-    title: "신랑 ❤️ 신부의 결혼식에 초대합니다",
-    description: "결혼식 초대장",
-    ogImage: "/images/ha0h-1fsi-bqt3.jpg",
+    title: "정규찬 ❤️ 김하영의 결혼식에 초대합니다",
+    description: "2026년 5월 23일 토요일 12시 30분",
+    ogImage: "/images/main_photo.jpg", // 업로드할 메인 사진 파일명으로 수정하세요
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
@@ -23,14 +23,14 @@ export const weddingConfig = {
   // 메인 화면
   main: {
     title: "Wedding Invitation",
-    image: "/images/ha0h-1fsi-bqt3.jpg",
-    date: "2026년 5월 16일 토요일 12시 30분",
-    venue: "웨딩홀 이름"
+    image: "/images/main_photo.jpg", // 업로드할 메인 사진 파일명으로 수정하세요
+    date: "2026년 5월 23일 토요일 12시 30분",
+    venue: "원미동교회 본당"
   },
 
   // 소개글
   intro: {
-    title: "",
+    title: "OUR WEDDING",
     text: "서로를 바라보며 걸어온\n소중한 발걸음이\n이제 하나의 길로 이어집니다.\n\n사랑과 믿음으로\n새 가정을 이루는 저희 두 사람의\n작은 시작을 알려드립니다."
   },
 
@@ -38,128 +38,107 @@ export const weddingConfig = {
   date: {
     year: 2026,
     month: 5,
-    day: 16,
+    day: 23,
     hour: 12,
     minute: 30,
-    displayDate: "2026.05.16 SAT PM 12:30",
+    displayDate: "2026.05.23 SAT PM 12:30",
   },
 
   // 장소 정보
   venue: {
-    name: "웨딩홀 이름",
-    address: "서울특별시 강남구 테헤란로 123\n웨딩홀 이름",
-    tel: "02-1234-5678",
-    naverMapId: "웨딩홀 이름", // 네이버 지도 검색용 장소명
+    name: "원미동교회 본당",
+    address: "경기도 부천시 원미구 원미로164번길 19-19",
+    tel: "032-657-2323",
+    naverMapId: "원미동교회", 
     coordinates: {
-      latitude: 37.5665,
-      longitude: 126.9780,
+      latitude: 37.497858,
+      longitude: 126.792912,
     },
-    placeId: "123456789", // 네이버 지도 장소 ID
-    mapZoom: "17", // 지도 줌 레벨
-    mapNaverCoordinates: "14141300,4507203,15,0,0,0,dh", // 네이버 지도 길찾기 URL용 좌표 파라미터 (구 형식)
+    placeId: "12143003", // 원미동교회 네이버 지도 ID
+    mapZoom: "17",
+    mapNaverCoordinates: "126.792912,37.497858,15,0,0,0,dh",
     transportation: {
-      subway: "지하철역 1번 출구에서 도보 5분",
-      bus: "간선\n 101, 102, 103\n지선\n 1234, 5678",
+      subway: "1호선 부천역 3번 출구 -> 소신여객터미널 일반버스 3번 탑승",
+      bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56, 56-1\n마을버스: 013-1, 013-2",
     },
-    parking: "건물 지하 주차장 이용 가능 (2시간 무료)",
-    // 신랑측 배차 안내
+    parking: "교회 주차장 이용 가능",
     groomShuttle: {
-      location: "신랑측 배차 출발지",
-      departureTime: "오전 10시 30분 출발",
-      contact: {
-        name: "담당자명",
-        tel: "010-1234-5678"
-      }
+      location: "",
+      departureTime: "",
+      contact: { name: "", tel: "" }
     },
-    // 신부측 배차 안내
     brideShuttle: {
-      location: "신부측 배차 출발지",
-      departureTime: "오전 11시 출발",
-      contact: {
-        name: "담당자명",
-        tel: "010-9876-5432"
-      }
+      location: "",
+      departureTime: "",
+      contact: { name: "", tel: "" }
     }
   },
 
-  // 갤러리
+  // 갤러리 (public/images 폴더에 넣은 파일명들로 바꾸세요)
   gallery: {
-    layout: "grid" as GalleryLayout, // "scroll" 또는 "grid" 선택
-    position: "bottom" as GalleryPosition, // "middle" (현재 위치) 또는 "bottom" (맨 하단) 선택
+    layout: "grid" as GalleryLayout,
+    position: "bottom" as GalleryPosition,
     images: [
-      "/images/gallery/image1.jpg",
-      "/images/gallery/image2.jpg",
-      "/images/gallery/image3.jpg",
-      "/images/gallery/image4.jpg",
-      "/images/gallery/image5.jpg",
-      "/images/gallery/image6.jpg",
-      "/images/gallery/image7.jpg",
-      "/images/gallery/image8.jpg",
-      "/images/gallery/image9.jpg",
+      "/images/gallery1.jpg",
+      "/images/gallery2.jpg",
+      "/images/gallery3.jpg",
+      "/images/gallery4.jpg",
+      "/images/gallery5.jpg",
+      "/images/gallery6.jpg",
     ],
   } as GalleryConfig,
 
   // 초대의 말씀
   invitation: {
-    message: "한 줄기 별빛이 되어 만난 인연\n평생을 함께 걸어가려 합니다.\n\n소중한 분들의 축복 속에\n저희 두 사람이 첫 걸음을 내딛습니다.\n\n귀한 시간 내어 함께해 주신다면\n그 어떤 축복보다 값진 선물이 될 것입니다.",
+    message: "저희 두 사람이 사랑과 믿음으로\n한 가정을 이루게 되었습니다.\n\n바쁘시더라도 부디 오셔서\n저희의 앞날을 축복해 주시고\n격려해 주시면 더없는 기쁨이 되겠습니다.",
     groom: {
-      name: "신랑이름",
-      label: "아들",
-      father: "신랑아버지",
-      mother: "신랑어머니",
+      name: "정규찬",
+      label: "차남",
+      father: "정경수",
+      mother: "박윤례",
     },
     bride: {
-      name: "신부이름",
-      label: "딸",
-      father: "신부아버지",
-      mother: "신부어머니",
+      name: "김하영",
+      label: "장녀",
+      father: "김의경",
+      mother: "김은희",
     },
   },
 
   // 계좌번호
   account: {
     groom: {
-      bank: "은행명",
-      number: "123-456-789012",
-      holder: "신랑이름",
+      bank: "신한은행",
+      number: "110-229-196887",
+      holder: "정규찬",
     },
     bride: {
-      bank: "은행명",
-      number: "987-654-321098",
-      holder: "신부이름",
+      bank: "농협",
+      number: "171052-51-025452",
+      holder: "김하영",
     },
     groomFather: {
-      bank: "은행명",
-      number: "111-222-333444",
-      holder: "신랑아버지",
+      bank: "농협",
+      number: "302-1411-2518-01",
+      holder: "정경수",
     },
     groomMother: {
-      bank: "은행명",
-      number: "555-666-777888",
-      holder: "신랑어머니",
+      bank: "하나은행",
+      number: "406-910829-53407",
+      holder: "박윤례",
     },
     brideFather: {
-      bank: "은행명",
-      number: "999-000-111222",
-      holder: "신부아버지",
+      bank: "농협",
+      number: "171052-51-073700",
+      holder: "김의경",
     },
     brideMother: {
-      bank: "은행명",
-      number: "333-444-555666",
-      holder: "신부어머니",
+      bank: "농협",
+      number: "171052-52-014958",
+      holder: "김은희",
     }
   },
 
-  // RSVP 설정
-  rsvp: {
-    enabled: false, // RSVP 섹션 표시 여부
-    showMealOption: false, // 식사 여부 입력 옵션 표시 여부
-  },
-
-  // 슬랙 알림 설정
-  slack: {
-    webhookUrl: process.env.NEXT_PUBLIC_SLACK_WEBHOOK_URL || "",
-    channel: "#wedding-response",
-    compactMessage: true, // 슬랙 메시지를 간결하게 표시
-  },
-}; 
+  rsvp: { enabled: false, showMealOption: false },
+  slack: { webhookUrl: "", channel: "", compactMessage: true },
+};
