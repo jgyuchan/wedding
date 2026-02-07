@@ -36,9 +36,9 @@ export default function RootLayout({
         <GlobalStyle />
         <CacheManager />
         
-        {/* 배경음악 추가 영역: public 폴더에 bgm.mp3 파일이 있어야 합니다 */}
+        {/* 배경음악 설정: 앞에 점(.)을 찍어 경로를 더 정확하게 잡았습니다 */}
         <audio 
-          src="/bgm.mp3" 
+          src="./bgm.mp3" 
           autoPlay 
           loop 
           style={{ display: 'none' }} 
