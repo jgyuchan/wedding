@@ -14,7 +14,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      {}
       <head>
         <link
           rel="preload"
@@ -30,14 +29,21 @@ export default function RootLayout({
           type="font/ttf"
           crossOrigin="anonymous"
         />
-        {}
         <meta name="generator" content={`Wedding-Template-${watermarkId}`} />
         <meta name="description" content={metaDescription} />
       </head>
       <body>
         <GlobalStyle />
         <CacheManager />
-        {}
+        
+        {/* 배경음악 추가 영역: public 폴더에 bgm.mp3 파일이 있어야 합니다 */}
+        <audio 
+          src="/bgm.mp3" 
+          autoPlay 
+          loop 
+          style={{ display: 'none' }} 
+        />
+
         <div className="jwk-watermark" aria-hidden="true">
           JWK-Wedding-{watermarkId}-NonCommercial
         </div>
@@ -46,4 +52,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-} 
+}
