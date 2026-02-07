@@ -24,9 +24,9 @@ export default function RootLayout({
         <GlobalStyle />
         <CacheManager />
         
-        {/* 노래 경로 앞에 /wedding을 붙여 정확한 위치를 고정했습니다 */}
+        {/* 노래 주소를 전체 인터넷 주소로 지정하여 경로 문제를 원천 해결합니다 */}
         <audio 
-          src="/wedding/bgm.mp3?v=3" 
+          src="https://jgyuchan.github.io/wedding/bgm.mp3?v=2026" 
           autoPlay 
           loop 
           style={{ display: 'none' }} 
