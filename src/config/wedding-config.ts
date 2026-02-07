@@ -13,15 +13,14 @@ export const weddingConfig = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
     description: "2026년 5월 23일 토요일 12시 30분",
-    // 경로 앞에 /wedding 을 추가했습니다.
-    ogImage: "/wedding/images/gallery/규찬하영1.jpg?v=2", 
+    ogImage: "/wedding/images/gallery/규찬하영1.jpg?v=3", 
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
 
   main: {
     title: "Wedding Invitation",
-    image: "/wedding/images/gallery/규찬하영1.jpg?v=2", 
+    image: "/wedding/images/gallery/규찬하영1.jpg?v=3", 
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -50,7 +49,7 @@ export const weddingConfig = {
       bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
     },
     parking: "교회 주차장 이용 가능",
-    // 에러 방지를 위해 빈 값 유지
+    // 에러 방지를 위해 빈 값을 유지합니다 (VenueSection.tsx와 짝을 맞춤)
     groomShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } },
     brideShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } }
   },
@@ -59,12 +58,12 @@ export const weddingConfig = {
     layout: "grid" as GalleryLayout,
     position: "bottom" as GalleryPosition,
     images: [
-      "/wedding/images/gallery/규찬하영2.jpg?v=2",
-      "/wedding/images/gallery/규찬하영3.jpg?v=2",
-      "/wedding/images/gallery/규찬하영4.jpg?v=2",
-      "/wedding/images/gallery/규찬하영5.jpg?v=2",
-      "/wedding/images/gallery/규찬하영6.jpg?v=2",
-      "/wedding/images/gallery/규찬하영7.jpg?v=2",
+      "/wedding/images/gallery/규찬하영2.jpg?v=3",
+      "/wedding/images/gallery/규찬하영3.jpg?v=3",
+      "/wedding/images/gallery/규찬하영4.jpg?v=3",
+      "/wedding/images/gallery/규찬하영5.jpg?v=3",
+      "/wedding/images/gallery/규찬하영6.jpg?v=3",
+      "/wedding/images/gallery/규찬하영7.jpg?v=3",
     ],
   } as GalleryConfig,
 
