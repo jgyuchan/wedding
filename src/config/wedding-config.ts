@@ -11,7 +11,7 @@ interface GalleryConfig {
 
 export const weddingConfig = {
   meta: {
-    title: "정규찬 ❤️ 김하영의 결혼식에 초대합니다",
+    title: "❤️우리 결혼 합니다❤️",
     description: "2026년 5월 23일 토요일 12시 30분",
     ogImage: "/images/main_photo.jpg",
     noIndex: true,
@@ -20,7 +20,7 @@ export const weddingConfig = {
 
   main: {
     title: "Wedding Invitation",
-    image: "/images/main_photo.jpg",
+    image: "/images/ha0h-1fsi-bqt3.jpg", // 메인 사진 경로 확인
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -40,10 +40,10 @@ export const weddingConfig = {
   },
 
   venue: {
-    name: "원미동교회 본당",
+    name: "원미동교회 본당", // 티맵, 카카오맵 도착지 이름
     address: "경기도 부천시 원미구 원미로164번길 19-19",
     tel: "032-657-2323",
-    naverMapId: "원미동교회 본당", 
+    naverMapId: "원미동교회 본당", // 네이버 지도 도착지 이름 (이름을 일치시킴)
     coordinates: {
       latitude: 37.497858,
       longitude: 126.792912,
@@ -56,9 +56,9 @@ export const weddingConfig = {
       bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
     },
     parking: "교회 주차장 이용 가능",
-    // 아래 부분을 비워두어야 에러가 나지 않습니다.
+    // 칸을 유지해야 에러가 나지 않습니다.
     groomShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } },
-    brideShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } }
+    brideShuttle: { location: "", departureTime: "", contact: { name: "" , tel: "" } }
   },
 
   gallery: {
@@ -71,6 +71,9 @@ export const weddingConfig = {
       "/images/gallery/image4.jpg",
       "/images/gallery/image5.jpg",
       "/images/gallery/image6.jpg",
+      "/images/gallery/image7.jpg",
+      "/images/gallery/image8.jpg",
+      "/images/gallery/image9.jpg",
     ],
   } as GalleryConfig,
 
