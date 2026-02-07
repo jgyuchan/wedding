@@ -20,9 +20,9 @@ export default function RootLayout({
         <GlobalStyle />
         <CacheManager />
         
-        {/* bgm.mp3가 public 폴더 바로 아래 있으므로 주소를 수정했습니다 */}
+        {/* 인터넷 주소를 통째로 박아넣어 경로 문제를 해결합니다. */}
         <audio 
-          src="/wedding/bgm.mp3?v=final" 
+          src="https://jgyuchan.github.io/wedding/bgm.mp3?v=20260208" 
           autoPlay 
           loop 
           style={{ display: 'none' }} 
