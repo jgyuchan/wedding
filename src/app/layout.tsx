@@ -15,20 +15,8 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
-        <link
-          rel="preload"
-          href="/fonts/PlayfairDisplay-Italic.ttf" 
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/MaruBuri-Regular.ttf" 
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
+        <link rel="preload" href="/fonts/PlayfairDisplay-Italic.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/MaruBuri-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         <meta name="generator" content={`Wedding-Template-${watermarkId}`} />
         <meta name="description" content={metaDescription} />
       </head>
@@ -36,9 +24,9 @@ export default function RootLayout({
         <GlobalStyle />
         <CacheManager />
         
-        {/* 배경음악 설정: ?v=final을 붙여 브라우저가 무조건 새 파일을 불러오게 했습니다 */}
+        {/* 노래 주소 앞에 /wedding을 추가하여 정확한 위치를 알려줍니다 */}
         <audio 
-          src="./bgm.mp3?v=final" 
+          src="/wedding/bgm.mp3?v=2" 
           autoPlay 
           loop 
           style={{ display: 'none' }} 
