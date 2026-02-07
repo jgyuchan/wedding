@@ -36,9 +36,9 @@ export default function RootLayout({
         <GlobalStyle />
         <CacheManager />
         
-        {/* 배경음악 설정: 앞에 점(.)을 찍어 경로를 더 정확하게 잡았습니다 */}
+        {/* 배경음악 설정: ?v=final을 붙여 브라우저가 무조건 새 파일을 불러오게 했습니다 */}
         <audio 
-          src="./bgm.mp3" 
+          src="./bgm.mp3?v=final" 
           autoPlay 
           loop 
           style={{ display: 'none' }} 
