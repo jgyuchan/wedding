@@ -46,20 +46,20 @@ export const weddingConfig = {
 
   // 장소 정보
   venue: {
-    name: "원미동교회 본당",
+    name: "원미동교회 본당", // 티맵, 카카오맵 도착지 명칭
     address: "경기도 부천시 원미구 원미로164번길 19-19",
     tel: "032-657-2323",
-    naverMapId: "원미동교회", 
+    naverMapId: "원미동교회 본당", // 네이버 지도 앱 도착지 명칭 (수정됨)
     coordinates: {
       latitude: 37.497858,
       longitude: 126.792912,
     },
-    placeId: "12143003", // 원미동교회 네이버 지도 ID
+    placeId: "12143003", // 원미동교회 네이버 지도 고유 ID
     mapZoom: "17",
     mapNaverCoordinates: "126.792912,37.497858,15,0,0,0,dh",
     transportation: {
       subway: "1호선 부천역 3번 출구 -> 소신여객터미널 일반버스 3번 탑승",
-      bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
+      bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56, 56-1\n마을버스: 013-1, 013-2",
     },
     parking: "교회 주차장 이용 가능",
     groomShuttle: {
