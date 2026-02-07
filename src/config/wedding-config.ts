@@ -15,7 +15,7 @@ export const weddingConfig = {
   meta: {
     title: "정규찬 ❤️ 김하영의 결혼식에 초대합니다",
     description: "2026년 5월 23일 토요일 12시 30분",
-    ogImage: "/images/main_photo.jpg", // 업로드할 메인 사진 파일명으로 수정하세요
+    ogImage: "/images/main_photo.jpg", // 메인 사진 파일명 확인 필수
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
@@ -23,7 +23,7 @@ export const weddingConfig = {
   // 메인 화면
   main: {
     title: "Wedding Invitation",
-    image: "/images/main_photo.jpg", // 업로드할 메인 사진 파일명으로 수정하세요
+    image: "/images/main_photo.jpg", // 메인 사진 파일명 확인 필수
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -34,7 +34,7 @@ export const weddingConfig = {
     text: "서로를 바라보며 걸어온\n소중한 발걸음이\n이제 하나의 길로 이어집니다.\n\n사랑과 믿음으로\n새 가정을 이루는 저희 두 사람의\n작은 시작을 알려드립니다."
   },
 
-  // 결혼식 일정
+  // 결혼식 일정 (D-day 계산용)
   date: {
     year: 2026,
     month: 5,
@@ -46,51 +46,42 @@ export const weddingConfig = {
 
   // 장소 정보
   venue: {
-    name: "원미동교회 본당", // 티맵, 카카오맵 도착지 명칭
+    name: "원미동교회 본당",
     address: "경기도 부천시 원미구 원미로164번길 19-19",
     tel: "032-657-2323",
-    naverMapId: "원미동교회 본당", // 네이버 지도 앱 도착지 명칭 (수정됨)
+    naverMapId: "원미동교회 본당", 
     coordinates: {
       latitude: 37.497858,
       longitude: 126.792912,
     },
-    placeId: "12143003", // 원미동교회 네이버 지도 고유 ID
+    placeId: "12143003", 
     mapZoom: "17",
     mapNaverCoordinates: "126.792912,37.497858,15,0,0,0,dh",
     transportation: {
       subway: "1호선 부천역 3번 출구 -> 소신여객터미널 일반버스 3번 탑승",
-      bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56, 56-1\n마을버스: 013-1, 013-2",
+      bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
     },
     parking: "교회 주차장 이용 가능",
-    groomShuttle: {
-      location: "",
-      departureTime: "",
-      contact: { name: "", tel: "" }
-    },
-    brideShuttle: {
-      location: "",
-      departureTime: "",
-      contact: { name: "", tel: "" }
-    }
+    // 배차 안내 섹션 삭제됨
   },
 
-  // 갤러리 (public/images 폴더에 넣은 파일명들로 바꾸세요)
+  // 갤러리 (public/images/gallery 폴더에 사진 업로드 후 파일명 수정)
   gallery: {
     layout: "grid" as GalleryLayout,
     position: "bottom" as GalleryPosition,
     images: [
-      "/images/gallery1.jpg",
-      "/images/gallery2.jpg",
-      "/images/gallery3.jpg",
-      "/images/gallery4.jpg",
-      "/images/gallery5.jpg",
-      "/images/gallery6.jpg",
+      "/images/gallery/image1.jpg",
+      "/images/gallery/image2.jpg",
+      "/images/gallery/image3.jpg",
+      "/images/gallery/image4.jpg",
+      "/images/gallery/image5.jpg",
+      "/images/gallery/image6.jpg",
     ],
   } as GalleryConfig,
 
-  // 초대의 말씀
+  // 초대의 말씀 및 혼주 정보
   invitation: {
-    message: "저희 두 사람이 사랑과 믿음으로\n한 가정을 이루게 되었습니다.\n\n바쁘시더라도 부디 오셔서\n저희의 앞날을 축복해 주시고\n격려해 주시면 더없는 기쁨이 되겠습니다.",
+    message: "바쁘시더라도 부디 오셔서\n저희의 앞날을 축복해 주시고\n격려해 주시면 더없는 기쁨이 되겠습니다.",
     groom: {
       name: "정규찬",
       label: "차남",
@@ -105,7 +96,7 @@ export const weddingConfig = {
     },
   },
 
-  // 계좌번호
+  // 계좌번호 정보
   account: {
     groom: {
       bank: "신한은행",
