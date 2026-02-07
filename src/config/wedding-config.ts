@@ -1,6 +1,5 @@
 const uniqueIdentifier = "JWK-WEDDING-TEMPLATE-V1";
 
-// 갤러리 레이아웃 타입 정의
 type GalleryLayout = "scroll" | "grid";
 type GalleryPosition = "middle" | "bottom";
 
@@ -11,30 +10,26 @@ interface GalleryConfig {
 }
 
 export const weddingConfig = {
-  // 메타 정보
   meta: {
     title: "정규찬 ❤️ 김하영의 결혼식에 초대합니다",
     description: "2026년 5월 23일 토요일 12시 30분",
-    ogImage: "/images/main_photo.jpg", // 메인 사진 파일명 확인 필수
+    ogImage: "/images/main_photo.jpg",
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
 
-  // 메인 화면
   main: {
     title: "Wedding Invitation",
-    image: "/images/main_photo.jpg", // 메인 사진 파일명 확인 필수
+    image: "/images/main_photo.jpg",
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
 
-  // 소개글
   intro: {
     title: "OUR WEDDING",
     text: "서로를 바라보며 걸어온\n소중한 발걸음이\n이제 하나의 길로 이어집니다.\n\n사랑과 믿음으로\n새 가정을 이루는 저희 두 사람의\n작은 시작을 알려드립니다."
   },
 
-  // 결혼식 일정 (D-day 계산용)
   date: {
     year: 2026,
     month: 5,
@@ -44,7 +39,6 @@ export const weddingConfig = {
     displayDate: "2026.05.23 SAT PM 12:30",
   },
 
-  // 장소 정보
   venue: {
     name: "원미동교회 본당",
     address: "경기도 부천시 원미구 원미로164번길 19-19",
@@ -62,10 +56,11 @@ export const weddingConfig = {
       bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
     },
     parking: "교회 주차장 이용 가능",
-    // 배차 안내 섹션 삭제됨
+    // 아래 부분을 비워두어야 에러가 나지 않습니다.
+    groomShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } },
+    brideShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } }
   },
 
-  // 갤러리 (public/images/gallery 폴더에 사진 업로드 후 파일명 수정)
   gallery: {
     layout: "grid" as GalleryLayout,
     position: "bottom" as GalleryPosition,
@@ -79,55 +74,19 @@ export const weddingConfig = {
     ],
   } as GalleryConfig,
 
-  // 초대의 말씀 및 혼주 정보
   invitation: {
     message: "바쁘시더라도 부디 오셔서\n저희의 앞날을 축복해 주시고\n격려해 주시면 더없는 기쁨이 되겠습니다.",
-    groom: {
-      name: "정규찬",
-      label: "차남",
-      father: "정경수",
-      mother: "박윤례",
-    },
-    bride: {
-      name: "김하영",
-      label: "장녀",
-      father: "김의경",
-      mother: "김은희",
-    },
+    groom: { name: "정규찬", label: "차남", father: "정경수", mother: "박윤례" },
+    bride: { name: "김하영", label: "장녀", father: "김의경", mother: "김은희" },
   },
 
-  // 계좌번호 정보
   account: {
-    groom: {
-      bank: "신한은행",
-      number: "110-229-196887",
-      holder: "정규찬",
-    },
-    bride: {
-      bank: "농협",
-      number: "171052-51-025452",
-      holder: "김하영",
-    },
-    groomFather: {
-      bank: "농협",
-      number: "302-1411-2518-01",
-      holder: "정경수",
-    },
-    groomMother: {
-      bank: "하나은행",
-      number: "406-910829-53407",
-      holder: "박윤례",
-    },
-    brideFather: {
-      bank: "농협",
-      number: "171052-51-073700",
-      holder: "김의경",
-    },
-    brideMother: {
-      bank: "농협",
-      number: "171052-52-014958",
-      holder: "김은희",
-    }
+    groom: { bank: "신한은행", number: "110-229-196887", holder: "정규찬" },
+    bride: { bank: "농협", number: "171052-51-025452", holder: "김하영" },
+    groomFather: { bank: "농협", number: "302-1411-2518-01", holder: "정경수" },
+    groomMother: { bank: "하나은행", number: "406-910829-53407", holder: "박윤례" },
+    brideFather: { bank: "농협", number: "171052-51-073700", holder: "김의경" },
+    brideMother: { bank: "농협", number: "171052-52-014958", holder: "김은희" }
   },
 
   rsvp: { enabled: false, showMealOption: false },
