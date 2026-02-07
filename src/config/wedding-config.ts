@@ -11,17 +11,16 @@ interface GalleryConfig {
 
 export const weddingConfig = {
   meta: {
-    title: "❤️우리 결혼 합니다❤️",
+    title: "❤️우리 결혼 합니다❤️", // 규찬 님 수정사항 반영
     description: "2026년 5월 23일 토요일 12시 30분",
     ogImage: "/images/gallery/규찬하영1.jpg", 
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
 
-  // 메인 화면: 메인으로 쓸 사진 파일명을 적어주세요
   main: {
     title: "Wedding Invitation",
-    image: "/images/gallery/규찬하영1.jpg", 
+    image: "/images/gallery/규찬하영1.jpg", // 메인 사진 1번 설정
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -32,23 +31,16 @@ export const weddingConfig = {
   },
 
   date: {
-    year: 2026,
-    month: 5,
-    day: 23,
-    hour: 12,
-    minute: 30,
+    year: 2026, month: 5, day: 23, hour: 12, minute: 30,
     displayDate: "2026.05.23 SAT PM 12:30",
   },
 
   venue: {
-    name: "원미동교회", // 티맵 목적지
+    name: "원미동교회",
     address: "경기도 부천시 원미구 원미로164번길 19-19",
     tel: "032-657-2323",
-    naverMapId: "원미동교회", // 네이버 지도 목적지
-    coordinates: {
-      latitude: 37.497858,
-      longitude: 126.792912,
-    },
+    naverMapId: "원미동교회", 
+    coordinates: { latitude: 37.497858, longitude: 126.792912 },
     placeId: "12143003", 
     mapZoom: "17",
     mapNaverCoordinates: "126.792912,37.497858,15,0,0,0,dh",
@@ -57,10 +49,11 @@ export const weddingConfig = {
       bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
     },
     parking: "교회 주차장 이용 가능",
-    // 배차 안내를 아예 정의하지 않아 화면에서 사라지게 시도합니다.
+    // 빌드 에러 방지를 위해 빈 값을 유지합니다 (화면에는 안 나옵니다)
+    groomShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } },
+    brideShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } }
   },
 
-  // 갤러리: 규찬하영2.jpg ~ 규찬하영7.jpg로 설정
   gallery: {
     layout: "grid" as GalleryLayout,
     position: "bottom" as GalleryPosition,
