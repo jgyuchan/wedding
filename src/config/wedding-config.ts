@@ -13,15 +13,14 @@ export const weddingConfig = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
     description: "2026년 5월 23일 토요일 12시 30분",
-    // 절대 주소를 사용하여 경로 오류를 원천 차단합니다.
-    ogImage: "https://jgyuchan.github.io/wedding/images/gallery/규찬하영1.jpg?v=2026", 
+    ogImage: "/wedding/images/main.jpg?v=final", 
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
 
   main: {
     title: "Wedding Invitation",
-    image: "https://jgyuchan.github.io/wedding/images/gallery/규찬하영1.jpg?v=2026", 
+    image: "/wedding/images/main.jpg?v=final", // images 폴더의 main.jpg 사용
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -50,7 +49,6 @@ export const weddingConfig = {
       bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
     },
     parking: "교회 주차장 이용 가능",
-    // 빌드 에러 방지를 위해 빈 값을 명시적으로 넣어줍니다.
     groomShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } },
     brideShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } }
   },
@@ -58,13 +56,14 @@ export const weddingConfig = {
   gallery: {
     layout: "grid" as GalleryLayout,
     position: "bottom" as GalleryPosition,
+    // images 폴더에 있는 1~6.jpg 파일을 직접 불러옵니다.
     images: [
-      "https://jgyuchan.github.io/wedding/images/gallery/규찬하영2.jpg?v=2026",
-      "https://jgyuchan.github.io/wedding/images/gallery/규찬하영3.jpg?v=2026",
-      "https://jgyuchan.github.io/wedding/images/gallery/규찬하영4.jpg?v=2026",
-      "https://jgyuchan.github.io/wedding/images/gallery/규찬하영5.jpg?v=2026",
-      "https://jgyuchan.github.io/wedding/images/gallery/규찬하영6.jpg?v=2026",
-      "https://jgyuchan.github.io/wedding/images/gallery/규찬하영7.jpg?v=2026",
+      "/wedding/images/1.jpg?v=final",
+      "/wedding/images/2.jpg?v=final",
+      "/wedding/images/3.jpg?v=final",
+      "/wedding/images/4.jpg?v=final",
+      "/wedding/images/5.jpg?v=final",
+      "/wedding/images/6.jpg?v=final",
     ],
   } as GalleryConfig,
 
