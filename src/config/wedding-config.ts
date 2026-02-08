@@ -20,7 +20,7 @@ export const weddingConfig = {
 
   main: {
     title: "Wedding Invitation",
-    image: "/wedding/images/main.jpg?v=final", 
+    image: "/wedding/images/main.jpg?v=final", // images 폴더에 있는 main.jpg
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -36,8 +36,8 @@ export const weddingConfig = {
   },
 
   venue: {
-    name: "원미동장로교회", // 지도 앱 검색용 이름
-    displayName: "원미동교회 본당", // 화면 표시용 이름
+    name: "원미동장로교회", // 지도 검색용 (가장 정확한 검색어)
+    displayName: "원미동교회 본당", // 화면에 보일 장소 이름
     address: "경기도 부천시 원미구 원미로164번길 19-19",
     tel: "032-657-2323",
     naverMapId: "원미동장로교회", 
@@ -50,7 +50,6 @@ export const weddingConfig = {
       bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
     },
     parking: "교회 주차장 이용 가능",
-    // 빌드 에러 방지를 위해 빈 값을 유지합니다
     groomShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } },
     brideShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } }
   },
@@ -58,6 +57,7 @@ export const weddingConfig = {
   gallery: {
     layout: "grid" as GalleryLayout,
     position: "bottom" as GalleryPosition,
+    // 현재 public/images 폴더에 있는 1.jpg ~ 6.jpg를 사용합니다.
     images: [
       "/wedding/images/1.jpg?v=final",
       "/wedding/images/2.jpg?v=final",
