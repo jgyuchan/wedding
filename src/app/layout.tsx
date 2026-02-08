@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
       <head><meta name="generator" content="Wedding-Invitation" /></head>
       <body>
         <GlobalStyle /><CacheManager />
-        {/* 브라우저 터치 후 노래가 재생됩니다 */}
+        {/* 브라우저 터치 후 재생됩니다 */}
         <audio src="https://jgyuchan.github.io/wedding/bgm.mp3" autoPlay loop style={{ display: 'none' }} />
         {children}
       </body>
