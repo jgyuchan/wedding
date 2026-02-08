@@ -4,6 +4,6 @@ const nextConfig = {
   assetPrefix: '/wedding',
   output: 'export',
   compiler: { styledComponents: true },
-  images: { unoptimized: true }, // 정적 사이트 이미지 최적화 끄기
+  images: { unoptimized: true },
 };
 export default nextConfig;
