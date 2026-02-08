@@ -3,12 +3,7 @@ const nextConfig = {
   basePath: '/wedding',
   assetPrefix: '/wedding',
   output: 'export',
-  compiler: {
-    styledComponents: true,
-  },
-  images: {
-    unoptimized: true,
-  },
+  compiler: { styledComponents: true },
+  images: { unoptimized: true },
 };
-
 export default nextConfig;
