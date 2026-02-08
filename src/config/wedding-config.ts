@@ -1,6 +1,6 @@
 const uniqueIdentifier = "JWK-WEDDING-TEMPLATE-V1";
 
-// : any 를 붙여서 타입스크립트의 엄격한 검사를 강제로 무시합니다. (빌드 성공의 핵심)
+// : any를 붙여서 에러를 원천 차단합니다.
 export const weddingConfig: any = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
