@@ -1,26 +1,17 @@
 const uniqueIdentifier = "JWK-WEDDING-TEMPLATE-V1";
 
-type GalleryLayout = "scroll" | "grid";
-type GalleryPosition = "middle" | "bottom";
-
-interface GalleryConfig {
-  layout: GalleryLayout;
-  position: GalleryPosition;
-  images: string[];
-}
-
 export const weddingConfig = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
     description: "2026년 5월 23일 토요일 12시 30분",
-    ogImage: "https://jgyuchan.github.io/wedding/images/main.jpg", 
+    ogImage: "/images/main.jpg", 
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
 
   main: {
     title: "Wedding Invitation",
-    image: "https://jgyuchan.github.io/wedding/images/main.jpg", 
+    image: "/images/main.jpg", 
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -36,7 +27,7 @@ export const weddingConfig = {
   },
 
   venue: {
-    name: "원미동장로교회", // 지도 검색용 (가장 정확한 이름)
+    name: "원미동장로교회", // 지도 앱 검색용
     displayName: "원미동교회 본당", // 화면 표시용
     address: "경기도 부천시 원미구 원미로164번길 19-19",
     tel: "032-657-2323",
@@ -55,17 +46,10 @@ export const weddingConfig = {
   },
 
   gallery: {
-    layout: "grid" as GalleryLayout,
-    position: "bottom" as GalleryPosition,
-    images: [
-      "https://jgyuchan.github.io/wedding/images/1.jpg",
-      "https://jgyuchan.github.io/wedding/images/2.jpg",
-      "https://jgyuchan.github.io/wedding/images/3.jpg",
-      "https://jgyuchan.github.io/wedding/images/4.jpg",
-      "https://jgyuchan.github.io/wedding/images/5.jpg",
-      "https://jgyuchan.github.io/wedding/images/6.jpg",
-    ],
-  } as GalleryConfig,
+    layout: "grid",
+    position: "bottom",
+    images: ["/images/1.jpg", "/images/2.jpg", "/images/3.jpg", "/images/4.jpg", "/images/5.jpg", "/images/6.jpg"],
+  },
 
   invitation: {
     message: "바쁘시더라도 부디 오셔서\n저희의 앞날을 축복해 주시고\n격려해 주시면 더없는 기쁨이 되겠습니다.\n\n※쾌적한 예식 진행을 위해 화환은 정중히 사양하오니 축하해 주시는 따뜻한 마음만 감사히 받겠습니다.",
