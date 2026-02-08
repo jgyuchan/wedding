@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { weddingConfig } from '../../config/wedding-config';
 
 const MainSection = () => {
-  // 에러를 일으키던 watermark 코드를 삭제했습니다.
+  // 에러를 일으키던 워터마크 코드를 삭제했습니다.
   const { main } = weddingConfig;
   
   return (
