@@ -6,7 +6,7 @@ export const weddingConfig = {
     description: "2026년 5월 23일 토요일 12시 30분",
     ogImage: "https://jgyuchan.github.io/wedding/images/main.jpg", 
     noIndex: true,
-    _jwk_watermark_id: uniqueIdentifier, // 이 줄이 없으면 빌드 에러가 납니다!
+    _jwk_watermark_id: uniqueIdentifier, // 빌드 에러 해결을 위한 필수 항목
   },
 
   main: {
