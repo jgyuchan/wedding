@@ -8,8 +8,8 @@ declare global { interface Window { naver: any; } }
 const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
-  const venue = weddingConfig.venue;
-  const dName = (venue as any).displayName || venue.name;
+  const v = weddingConfig.venue;
+  const dName = (v as any).displayName || v.name;
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -21,27 +21,27 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
   
   useEffect(() => {
     if (!mapLoaded || !mapRef.current) return;
-    const loc = new window.naver.maps.LatLng(venue.coordinates.latitude, venue.coordinates.longitude);
+    const loc = new window.naver.maps.LatLng(v.coordinates.latitude, v.coordinates.longitude);
     const map = new window.naver.maps.Map(mapRef.current, { center: loc, zoom: 17 });
     new window.naver.maps.Marker({ position: loc, map: map });
-  }, [mapLoaded, venue]);
+  }, [mapLoaded, v]);
 
-  const nav = (type: 'naver' | 'kakao' | 'tmap') => {
-    const { latitude: la, longitude: lo } = venue.coordinates;
-    const sName = encodeURIComponent(venue.name);
-    if (type === 'naver') window.open(`https://map.naver.com/v5/search/${sName}?c=${lo},${la},15,0,0,0,dh`, '_blank');
-    if (type === 'kakao') window.open(`https://map.kakao.com/link/to/${sName},${la},${lo}`, '_blank');
-    if (type === 'tmap') window.location.href = `tmap://route?goalname=${sName}&goaly=${la}&goalx=${lo}`;
+  const nav = (t: 'naver' | 'kakao' | 'tmap') => {
+    const { latitude: la, longitude: lo } = v.coordinates;
+    const sName = encodeURIComponent(v.name);
+    if (t === 'naver') window.open(`https://map.naver.com/v5/search/${sName}?c=${lo},${la},15,0,0,0,dh`, '_blank');
+    if (t === 'kakao') window.open(`https://map.kakao.com/link/to/${sName},${la},${lo}`, '_blank');
+    if (t === 'tmap') window.location.href = `tmap://route?goalname=${sName}&goaly=${la}&goalx=${lo}`;
   };
   
   return (
     <VContainer $bgColor={bgColor}>
       <h2>장소</h2>
-      <VInfo><h3>{dName}</h3><p>{venue.address}</p><a href={`tel:${venue.tel}`}>{venue.tel}</a></VInfo>
+      <VInfo><h3>{dName}</h3><p>{v.address}</p><a href={`tel:${v.tel}`}>{v.tel}</a></VInfo>
       <MContainer ref={mapRef} />
       <Bts><button onClick={() => nav('naver')}>네이버 지도</button><button onClick={() => nav('kakao')}>카카오맵</button><button onClick={() => nav('tmap')}>TMAP</button></Bts>
-      <Card><h4>교통 안내</h4><p>{venue.transportation.bus}</p></Card>
-      <Card><h4>주차 안내</h4><p>{venue.parking}</p></Card>
+      <Card><h4>교통 안내</h4><p>{v.transportation.bus}</p></Card>
+      <Card><h4>주차 안내</h4><p>{v.parking}</p></Card>
     </VContainer>
   );
 };
