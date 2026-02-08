@@ -1,6 +1,6 @@
 const uniqueIdentifier = "JWK-WEDDING-TEMPLATE-V1";
 
-// : any를 붙여서 에러를 원천 차단합니다.
+// : any를 붙여서 타입 검사 에러를 강제로 무시합니다.
 export const weddingConfig: any = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
@@ -28,8 +28,8 @@ export const weddingConfig: any = {
   },
 
   venue: {
-    name: "원미동장로교회", // 지도 검색용
-    displayName: "원미동교회 본당", // 화면 표시용
+    name: "원미동장로교회", 
+    displayName: "원미동교회 본당", 
     address: "경기도 부천시 원미구 원미로164번길 19-19",
     tel: "032-657-2323",
     naverMapId: "원미동장로교회", 
