@@ -20,7 +20,7 @@ export default function RootLayout({
         <GlobalStyle />
         <CacheManager />
         
-        {/* 노래 주소를 인터넷 전체 주소로 박아넣어 경로 문제를 해결합니다. */}
+        {/* 노래 주소를 전체 인터넷 주소로 박아넣어 경로 문제를 해결합니다. */}
         <audio 
           src="https://jgyuchan.github.io/wedding/bgm.mp3" 
           autoPlay 
