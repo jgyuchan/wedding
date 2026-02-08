@@ -47,7 +47,9 @@ const InvitationSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' 
 
 const Container = styled.section<{ $bgColor: string }>` padding: 4rem 1.5rem; text-align: center; background: ${p => p.$bgColor === 'beige' ? '#F8F6F2' : '#fff'}; h2 { margin-bottom: 2rem; font-size: 1.5rem; } `;
 const Msg = styled.p` white-space: pre-line; margin-bottom: 3rem; color: #666; line-height: 1.8; `;
-const Names = styled.div` margin-bottom: 2.5rem; p { margin: 0.5rem 0; font-size: 1.1rem; } Label { font-size: 0.9rem; color: #888; margin: 0 0.5rem; } Name { font-weight: 500; } `;
+const Names = styled.div` margin-bottom: 2.5rem; p { margin: 0.5rem 0; font-size: 1.1rem; } `;
+const Label = styled.span` font-size: 0.9rem; color: #888; margin: 0 0.5rem; `;
+const Name = styled.span` font-weight: 500; `;
 const OpenBtn = styled.button` background: #e2d2be; color: #fff; border: none; padding: 0.8rem 2rem; border-radius: 4px; cursor: pointer; `;
 const Overlay = styled.div` position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; `;
 const Modal = styled.div` background: #fff; width: 90%; max-width: 400px; border-radius: 12px; `;
@@ -56,6 +58,5 @@ const Body = styled.div` padding: 1.5rem; h4 { text-align: left; color: #888; fo
 const Row = styled.div` display: flex; justify-content: space-between; margin-bottom: 1rem; span { font-size: 1rem; } `;
 const Btns = styled.div` display: flex; gap: 1.2rem; a { text-decoration: none; font-size: 1.2rem; } `;
 const Divider = styled.div` border-top: 1px solid #eee; margin: 1.5rem 0; `;
-const Label = styled.span``; const Name = styled.span``; // 에러 방지용
 
 export default InvitationSection;
