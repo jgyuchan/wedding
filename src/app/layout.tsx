@@ -20,9 +20,9 @@ export default function RootLayout({
         <GlobalStyle />
         <CacheManager />
         
-        {/* 인터넷 주소를 통째로 박아넣어 경로 문제를 해결합니다. */}
+        {/* 노래 경로를 깃허브 배포 주소에 맞춰 고정했습니다 */}
         <audio 
-          src="https://jgyuchan.github.io/wedding/bgm.mp3?v=20260208" 
+          src="/wedding/bgm.mp3?v=2026" 
           autoPlay 
           loop 
           style={{ display: 'none' }} 
