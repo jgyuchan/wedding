@@ -11,8 +11,13 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
       <body>
         <GlobalStyle />
         <CacheManager />
-        {/* 브라우저 터치 후 재생됨 */}
-        <audio src="./bgm.mp3" autoPlay loop style={{ display: 'none' }} />
+        {/* 노래 주소를 전체 주소로 지정하여 경로 문제를 원천 해결합니다. */}
+        <audio 
+          src="https://jgyuchan.github.io/wedding/bgm.mp3" 
+          autoPlay 
+          loop 
+          style={{ display: 'none' }} 
+        />
         {children}
       </body>
     </html>
