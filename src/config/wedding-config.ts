@@ -13,15 +13,14 @@ export const weddingConfig = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
     description: "2026년 5월 23일 토요일 12시 30분",
-    ogImage: "https://jgyuchan.github.io/wedding/images/main.jpg?v=20260208", 
+    ogImage: "/wedding/images/main.jpg?v=2026", 
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier,
   },
 
   main: {
     title: "Wedding Invitation",
-    // 인터넷 주소를 직접 입력하여 경로 오류를 원천 차단합니다.
-    image: "https://jgyuchan.github.io/wedding/images/main.jpg?v=20260208", 
+    image: "/wedding/images/main.jpg?v=2026", 
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -37,10 +36,10 @@ export const weddingConfig = {
   },
 
   venue: {
-    name: "원미동교회",
+    name: "원미동장로교회", // 티맵 도착지 명칭 수정
     address: "경기도 부천시 원미구 원미로164번길 19-19",
     tel: "032-657-2323",
-    naverMapId: "원미동교회", 
+    naverMapId: "원미동장로교회", // 네이버 지도 도착지 명칭 수정
     coordinates: { latitude: 37.497858, longitude: 126.792912 },
     placeId: "12143003", 
     mapZoom: "17",
@@ -50,6 +49,7 @@ export const weddingConfig = {
       bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
     },
     parking: "교회 주차장 이용 가능",
+    // 빌드 에러 방지를 위해 빈 값을 유지합니다.
     groomShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } },
     brideShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } }
   },
@@ -57,14 +57,14 @@ export const weddingConfig = {
   gallery: {
     layout: "grid" as GalleryLayout,
     position: "bottom" as GalleryPosition,
-    // 모든 갤러리 사진도 인터넷 주소로 고정합니다.
+    // 현재 public/images/ 폴더에 있는 파일들로 경로를 맞췄습니다.
     images: [
-      "https://jgyuchan.github.io/wedding/images/1.jpg?v=20260208",
-      "https://jgyuchan.github.io/wedding/images/2.jpg?v=20260208",
-      "https://jgyuchan.github.io/wedding/images/3.jpg?v=20260208",
-      "https://jgyuchan.github.io/wedding/images/4.jpg?v=20260208",
-      "https://jgyuchan.github.io/wedding/images/5.jpg?v=20260208",
-      "https://jgyuchan.github.io/wedding/images/6.jpg?v=20260208",
+      "/wedding/images/1.jpg?v=2026",
+      "/wedding/images/2.jpg?v=2026",
+      "/wedding/images/3.jpg?v=2026",
+      "/wedding/images/4.jpg?v=2026",
+      "/wedding/images/5.jpg?v=2026",
+      "/wedding/images/6.jpg?v=2026",
     ],
   } as GalleryConfig,
 
