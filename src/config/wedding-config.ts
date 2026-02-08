@@ -36,7 +36,7 @@ export const weddingConfig = {
   },
 
   venue: {
-    name: "원미동장로교회", // 지도 앱 검색용
+    name: "원미동장로교회", // 지도 검색용 (가장 정확한 이름)
     displayName: "원미동교회 본당", // 화면 표시용
     address: "경기도 부천시 원미구 원미로164번길 19-19",
     tel: "032-657-2323",
@@ -47,7 +47,7 @@ export const weddingConfig = {
     mapNaverCoordinates: "126.792912,37.497858,15,0,0,0,dh",
     transportation: {
       subway: "1호선 부천역 3번 출구 -> 소신여객터미널 일반버스 3번 탑승",
-      bus: "조마루삼거리 교회 앞 하차\n일반버스: 3, 56-1\n마을버스: 013-1, 013-2",
+      bus: "○ 부천역에서 오실 때\n· 1호선 전철역 3번 출구 나오셔서 소신여객터미널에서\n· 일반버스 3 탑승 ⇒ 조마루삼거리 교회 앞 하차\n\n○ 부천종합운동장에서 오실 때\n· 7호선 전철역 4번 출구 종합운동장역 앞 버스정류장\n· 마을버스 013-1, 013-2\n· 일반버스 3, 56-1 탑승 ⇒ 조마루삼거리 교회 앞 하차",
     },
     parking: "교회 주차장 이용 가능",
     groomShuttle: { location: "", departureTime: "", contact: { name: "", tel: "" } },
@@ -57,7 +57,6 @@ export const weddingConfig = {
   gallery: {
     layout: "grid" as GalleryLayout,
     position: "bottom" as GalleryPosition,
-    // 인터넷 전체 주소를 직접 사용하여 경로 오류를 원천 차단합니다.
     images: [
       "https://jgyuchan.github.io/wedding/images/1.jpg",
       "https://jgyuchan.github.io/wedding/images/2.jpg",
@@ -69,9 +68,17 @@ export const weddingConfig = {
   } as GalleryConfig,
 
   invitation: {
-    message: "바쁘시더라도 부디 오셔서\n저희의 앞날을 축복해 주시고\n격려해 주시면 더없는 기쁨이 되겠습니다.",
-    groom: { name: "정규찬", label: "차남", father: "정경수", mother: "박윤례" },
-    bride: { name: "김하영", label: "장녀", father: "김의경", mother: "김은희" },
+    message: "바쁘시더라도 부디 오셔서\n저희의 앞날을 축복해 주시고\n격려해 주시면 더없는 기쁨이 되겠습니다.\n\n※쾌적한 예식 진행을 위해 화환은 정중히 사양하오니 축하해 주시는 따뜻한 마음만 감사히 받겠습니다.",
+    groom: { 
+      name: "정규찬", label: "차남", tel: "010-8910-5167",
+      father: "정경수", fatherTel: "010-2367-5167", 
+      mother: "박윤례", motherTel: "010-3017-5167" 
+    },
+    bride: { 
+      name: "김하영", label: "장녀", tel: "010-4230-6495",
+      father: "김의경", fatherTel: "010-3774-7888", 
+      mother: "김은희", motherTel: "010-6495-7888" 
+    },
   },
 
   account: {
