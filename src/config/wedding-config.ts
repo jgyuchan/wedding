@@ -6,8 +6,7 @@ export const weddingConfig = {
     description: "2026년 5월 23일 토요일 12시 30분",
     ogImage: "https://jgyuchan.github.io/wedding/images/main.jpg", 
     noIndex: true,
-    // 빌드 에러 해결을 위해 아래 항목을 반드시 포함해야 합니다!
-    _jwk_watermark_id: uniqueIdentifier, 
+    _jwk_watermark_id: uniqueIdentifier, // 이 줄이 없으면 빌드 에러가 납니다!
   },
 
   main: {
@@ -28,8 +27,8 @@ export const weddingConfig = {
   },
 
   venue: {
-    name: "원미동장로교회", // 지도 앱 검색용 (가장 정확한 검색어)
-    displayName: "원미동교회 본당", // 화면 표시용 이름
+    name: "원미동장로교회", // 지도 검색용 (가장 정확한 이름)
+    displayName: "원미동교회 본당", // 화면 표시용
     address: "경기도 부천시 원미구 원미로164번길 19-19",
     tel: "032-657-2323",
     naverMapId: "원미동장로교회", 
