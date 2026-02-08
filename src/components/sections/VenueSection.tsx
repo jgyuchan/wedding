@@ -11,8 +11,8 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
   const [mapLoaded, setMapLoaded] = useState(false);
   const [mapError, setMapError] = useState(false);
   
-  const venue = weddingConfig.venue;
-  const displayName = (venue as any).displayName || venue.name; // 표시용 이름 사용
+  const v = weddingConfig.venue;
+  const dName = (v as any).displayName || v.name;
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -26,53 +26,47 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
   useEffect(() => {
     if (!mapLoaded || !mapRef.current || mapError) return;
     try {
-      const location = new window.naver.maps.LatLng(venue.coordinates.latitude, venue.coordinates.longitude);
-      const map = new window.naver.maps.Map(mapRef.current, { center: location, zoom: 17 });
-      const marker = new window.naver.maps.Marker({ position: location, map: map });
-      const info = new window.naver.maps.InfoWindow({ content: `<div style="padding:10px;text-align:center;font-size:14px;"><strong>${displayName}</strong></div>` });
-      info.open(map, marker);
+      const loc = new window.naver.maps.LatLng(v.coordinates.latitude, v.coordinates.longitude);
+      const map = new window.naver.maps.Map(mapRef.current, { center: loc, zoom: 17 });
+      new window.naver.maps.Marker({ position: loc, map: map });
     } catch (e) { setMapError(true); }
-  }, [mapLoaded, mapError, venue, displayName]);
+  }, [mapLoaded, mapError, v]);
 
-  const navigate = (type: 'naver' | 'kakao' | 'tmap') => {
-    const { latitude, longitude } = venue.coordinates;
-    const searchName = encodeURIComponent(venue.name); // 검색은 '원미동장로교회'로
-    if (type === 'naver') window.open(`https://map.naver.com/v5/search/${searchName}?c=${longitude},${latitude},15,0,0,0,dh`, '_blank');
-    if (type === 'kakao') window.open(`https://map.kakao.com/link/to/${searchName},${latitude},${longitude}`, '_blank');
-    if (type === 'tmap') {
-      window.location.href = `tmap://route?goalname=${searchName}&goaly=${latitude}&goalx=${longitude}`;
+  const nav = (t: 'naver' | 'kakao' | 'tmap') => {
+    const { latitude: la, longitude: lo } = v.coordinates;
+    const sName = encodeURIComponent(v.name); // 검색어는 '원미동장로교회'
+    if (t === 'naver') window.open(`https://map.naver.com/v5/search/${sName}?c=${lo},${la},15,0,0,0,dh`, '_blank');
+    if (t === 'kakao') window.open(`https://map.kakao.com/link/to/${sName},${la},${lo}`, '_blank');
+    if (t === 'tmap') {
+      window.location.href = `tmap://route?goalname=${sName}&goaly=${la}&goalx=${lo}`;
       setTimeout(() => { if(!document.hidden) window.location.href = 'https://tmap.co.kr'; }, 1000);
     }
   };
   
   return (
-    <VenueSectionContainer $bgColor={bgColor}>
-      <SectionTitle>장소</SectionTitle>
-      <VenueInfo>
-        <VenueName>{displayName}</VenueName> {/* 화면에는 '원미동교회 본당' 표시 */}
-        <p>{venue.address}</p>
-        <VenueTel href={`tel:${venue.tel}`}>{venue.tel}</VenueTel>
-      </VenueInfo>
-      <MapContainer ref={mapRef}>{!mapLoaded && <p>지도를 불러오는 중...</p>}</MapContainer>
-      <NavigateButtonsContainer>
-        <NavBtn onClick={() => navigate('naver')}>네이버 지도</NavBtn>
-        <NavBtn onClick={() => navigate('kakao')}>카카오맵</NavBtn>
-        <NavBtn onClick={() => navigate('tmap')}>TMAP</NavBtn>
-      </NavigateButtonsContainer>
-      <Card><h4>대중교통 안내</h4><p>{venue.transportation.subway}</p><p>{venue.transportation.bus}</p></Card>
-      <Card><h4>주차 안내</h4><p>{venue.parking}</p></Card>
-    </VenueSectionContainer>
+    <VContainer $bgColor={bgColor}>
+      <h2>장소</h2>
+      <VInfo>
+        <h3>{dName}</h3> {/* 화면에는 '원미동교회 본당' 표시 */}
+        <p>{v.address}</p>
+        <a href={`tel:${v.tel}`}>{v.tel}</a>
+      </VInfo>
+      <MContainer ref={mapRef}>{!mapLoaded && <p>로딩 중...</p>}</MContainer>
+      <Btns>
+        <button onClick={() => nav('naver')}>네이버 지도</button>
+        <button onClick={() => nav('kakao')}>카카오맵</button>
+        <button onClick={() => nav('tmap')}>TMAP</button>
+      </Btns>
+      <Card><h4>상세 교통 정보</h4><p>{v.transportation.bus}</p></Card>
+      <Card><h4>주차 안내</h4><p>{v.parking}</p></Card>
+    </VContainer>
   );
 };
 
-const VenueSectionContainer = styled.section<{ $bgColor: string }>` padding: 4rem 1.5rem; text-align: center; background-color: ${props => props.$bgColor === 'beige' ? '#F8F6F2' : 'white'}; `;
-const SectionTitle = styled.h2` margin-bottom: 2rem; font-size: 1.5rem; position: relative; display: inline-block; &::after { content: ''; position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; border-radius: 50%; background-color: #c4a986; } `;
-const VenueInfo = styled.div` margin-bottom: 1.5rem; `;
-const VenueName = styled.h3` font-size: 1.25rem; margin-bottom: 0.5rem; `;
-const VenueTel = styled.a` color: #c4a986; text-decoration: none; `;
-const MapContainer = styled.div` height: 16rem; margin: 0 auto 1rem; background: #eee; border-radius: 8px; max-width: 36rem; position: relative; display: flex; align-items: center; justify-content: center; `;
-const NavigateButtonsContainer = styled.div` display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; max-width: 36rem; margin-left: auto; margin-right: auto; `;
-const NavBtn = styled.button` flex: 1; min-width: 6rem; background: #c4a986; color: white; border: none; border-radius: 4px; padding: 0.6rem; cursor: pointer; `;
-const Card = styled.div` background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 1.5rem; margin: 0 auto 1.5rem; max-width: 36rem; text-align: left; h4 { margin-bottom: 0.5rem; } p { font-size: 0.9rem; color: #666; white-space: pre-line; } `;
+const VContainer = styled.section<{ $bgColor: string }>` padding: 4rem 1.5rem; text-align: center; background-color: ${props => props.$bgColor === 'beige' ? '#F8F6F2' : 'white'}; h2 { margin-bottom: 2rem; font-size: 1.5rem; } `;
+const VInfo = styled.div` margin-bottom: 1.5rem; h3 { font-size: 1.25rem; margin-bottom: 0.5rem; } a { color: #c4a986; text-decoration: none; } `;
+const MContainer = styled.div` height: 16rem; margin: 0 auto 1.5rem; background: #eee; border-radius: 8px; max-width: 36rem; `;
+const Btns = styled.div` display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; button { flex: 1; max-width: 8rem; padding: 0.6rem; background: #c4a986; color: white; border: none; border-radius: 4px; cursor: pointer; } `;
+const Card = styled.div` background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin: 0 auto 1.5rem; max-width: 36rem; text-align: left; h4 { margin-bottom: 0.5rem; font-size: 1rem; } p { font-size: 0.9rem; color: #666; white-space: pre-line; } `;
 
 export default VenueSection;
