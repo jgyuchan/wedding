@@ -4,6 +4,6 @@ const nextConfig = {
   assetPrefix: '/wedding',
   output: 'export',
   compiler: { styledComponents: true },
-  images: { unoptimized: true },
+  images: { unoptimized: true }, 
 };
 export default nextConfig;
