@@ -28,7 +28,7 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
 
   const nav = (t: 'naver' | 'kakao' | 'tmap') => {
     const { latitude: la, longitude: lo } = v.coordinates;
-    const sName = encodeURIComponent(v.name);
+    const sName = encodeURIComponent(v.name); // 검색어는 원미동장로교회
     if (t === 'naver') window.open(`https://map.naver.com/v5/search/${sName}?c=${lo},${la},15,0,0,0,dh`, '_blank');
     if (t === 'kakao') window.open(`https://map.kakao.com/link/to/${sName},${la},${lo}`, '_blank');
     if (t === 'tmap') window.location.href = `tmap://route?goalname=${sName}&goaly=${la}&goalx=${lo}`;
@@ -40,7 +40,7 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
       <VInfo><h3>{dName}</h3><p>{v.address}</p><a href={`tel:${v.tel}`}>{v.tel}</a></VInfo>
       <MContainer ref={mapRef} />
       <Bts><button onClick={() => nav('naver')}>네이버 지도</button><button onClick={() => nav('kakao')}>카카오맵</button><button onClick={() => nav('tmap')}>TMAP</button></Bts>
-      <Card><h4>교통 안내</h4><p>{v.transportation.bus}</p></Card>
+      <Card><h4>상세 교통 정보</h4><p>{v.transportation.bus}</p></Card>
       <Card><h4>주차 안내</h4><p>{v.parking}</p></Card>
     </VContainer>
   );
@@ -50,6 +50,6 @@ const VContainer = styled.section<{ $bgColor: string }>` padding: 4rem 1.5rem; t
 const VInfo = styled.div` margin-bottom: 2rem; h3 { font-size: 1.2rem; margin-bottom: 0.5rem; } a { color: #c4a986; text-decoration: none; } `;
 const MContainer = styled.div` height: 16rem; background: #eee; border-radius: 8px; max-width: 36rem; margin: 0 auto 1.5rem; `;
 const Bts = styled.div` display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; button { flex: 1; max-width: 8rem; padding: 0.6rem; background: #c4a986; color: white; border: none; border-radius: 4px; cursor: pointer; } `;
-const Card = styled.div` background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin: 0 auto 1rem; max-width: 36rem; text-align: left; h4 { margin-bottom: 0.5rem; font-size: 1rem; } p { font-size: 0.9rem; color: #666; white-space: pre-line; } `;
+const Card = styled.div` background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin: 0 auto 1rem; max-width: 36rem; text-align: left; h4 { margin-bottom: 0.5rem; font-size: 1rem; } p { font-size: 0.9rem; color: #666; white-space: pre-line; line-height: 1.6; } `;
 
 export default VenueSection;
