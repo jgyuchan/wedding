@@ -1,17 +1,14 @@
-const uniqueIdentifier = "JWK-WEDDING-TEMPLATE-V1";
-
 export const weddingConfig = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
     description: "2026년 5월 23일 토요일 12시 30분",
-    ogImage: "/images/main.jpg", 
+    ogImage: "https://jgyuchan.github.io/wedding/images/main.jpg", 
     noIndex: true,
-    _jwk_watermark_id: uniqueIdentifier,
   },
 
   main: {
     title: "Wedding Invitation",
-    image: "/images/main.jpg", 
+    image: "https://jgyuchan.github.io/wedding/images/main.jpg", 
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -35,7 +32,6 @@ export const weddingConfig = {
     coordinates: { latitude: 37.497858, longitude: 126.792912 },
     placeId: "12143003", 
     mapZoom: "17",
-    mapNaverCoordinates: "126.792912,37.497858,15,0,0,0,dh",
     transportation: {
       subway: "1호선 부천역 3번 출구 -> 소신여객터미널 일반버스 3번 탑승",
       bus: "○ 부천역에서 오실 때\n· 1호선 전철역 3번 출구 나오셔서 소신여객터미널에서\n· 일반버스 3 탑승 ⇒ 조마루삼거리 교회 앞 하차\n\n○ 부천종합운동장에서 오실 때\n· 7호선 전철역 4번 출구 종합운동장역 앞 버스정류장\n· 마을버스 013-1, 013-2\n· 일반버스 3, 56-1 탑승 ⇒ 조마루삼거리 교회 앞 하차",
@@ -48,11 +44,18 @@ export const weddingConfig = {
   gallery: {
     layout: "grid",
     position: "bottom",
-    images: ["/images/1.jpg", "/images/2.jpg", "/images/3.jpg", "/images/4.jpg", "/images/5.jpg", "/images/6.jpg"],
+    images: [
+      "https://jgyuchan.github.io/wedding/images/1.jpg",
+      "https://jgyuchan.github.io/wedding/images/2.jpg",
+      "https://jgyuchan.github.io/wedding/images/3.jpg",
+      "https://jgyuchan.github.io/wedding/images/4.jpg",
+      "https://jgyuchan.github.io/wedding/images/5.jpg",
+      "https://jgyuchan.github.io/wedding/images/6.jpg",
+    ],
   },
 
   invitation: {
-    message: "바쁘시더라도 부디 오셔서\n저희의 앞날을 축복해 주시고\n격려해 주시면 더없는 기쁨이 되겠습니다.\n\n※쾌적한 예식 진행을 위해 화환은 정중히 사양하오니 축하해 주시는 따뜻한 마음만 감사히 받겠습니다.",
+    message: "저희 두 사람이 사랑과 믿음으로\n한 가정을 이루게 되었습니다.\n바쁘시더라도 부디 오셔서\n저희의 앞날을 축복해 주시고\n격려해 주시면 더없는 기쁨이 되겠습니다.\n\n※쾌적한 예식 진행을 위해 화환은 정중히 사양하오니 축하해 주시는 따뜻한 마음만 감사히 받겠습니다.",
     groom: { 
       name: "정규찬", label: "차남", tel: "010-8910-5167",
       father: "정경수", fatherTel: "010-2367-5167", 
