@@ -4,11 +4,7 @@ import Watermark from '../lib/watermark';
 import { GlobalStyle } from '../styles/globalStyles';
 import CacheManager from '../components/CacheManager';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode; }) {
   return (
     <html lang="ko">
       <head>
@@ -19,15 +15,8 @@ export default function RootLayout({
       <body>
         <GlobalStyle />
         <CacheManager />
-        
         {/* 노래 경로를 깃허브 배포 주소에 맞춰 고정했습니다 */}
-        <audio 
-          src="/wedding/bgm.mp3?v=2026" 
-          autoPlay 
-          loop 
-          style={{ display: 'none' }} 
-        />
-
+        <audio src="/wedding/bgm.mp3?v=final" autoPlay loop style={{ display: 'none' }} />
         <Watermark />
         {children}
       </body>
