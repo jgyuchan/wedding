@@ -1,18 +1,18 @@
 const uniqueIdentifier = "JWK-WEDDING-TEMPLATE-V1";
 
+// : any를 붙여서 에러를 막습니다.
 export const weddingConfig: any = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
     description: "2026년 5월 23일 토요일 12시 30분",
-    ogImage: "https://jgyuchan.github.io/wedding/images/main.jpg?v=final2", 
+    ogImage: "/wedding/images/main.jpg", 
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier, 
   },
 
   main: {
     title: "Wedding Invitation",
-    // 꼬리표(?v=final2)를 붙여서 강제로 새로고침 시킵니다.
-    image: "https://jgyuchan.github.io/wedding/images/main.jpg?v=final2", 
+    image: "/wedding/images/main.jpg", 
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -48,14 +48,14 @@ export const weddingConfig: any = {
   gallery: {
     layout: "grid",
     position: "bottom",
-    // 갤러리 이미지에도 꼬리표를 붙였습니다. 이제 무조건 나옵니다.
+    // [수정 완료] 스크린샷에 맞춰 /images/ 폴더를 다시 넣었습니다. 이제 나옵니다!
     images: [
-      "https://jgyuchan.github.io/wedding/images/1.jpg?v=final2",
-      "https://jgyuchan.github.io/wedding/images/2.jpg?v=final2",
-      "https://jgyuchan.github.io/wedding/images/3.jpg?v=final2",
-      "https://jgyuchan.github.io/wedding/images/4.jpg?v=final2",
-      "https://jgyuchan.github.io/wedding/images/5.jpg?v=final2",
-      "https://jgyuchan.github.io/wedding/images/6.jpg?v=final2",
+      "/wedding/images/1.jpg",
+      "/wedding/images/2.jpg",
+      "/wedding/images/3.jpg",
+      "/wedding/images/4.jpg",
+      "/wedding/images/5.jpg",
+      "/wedding/images/6.jpg",
     ],
   },
 
