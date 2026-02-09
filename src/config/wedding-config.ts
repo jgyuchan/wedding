@@ -1,18 +1,17 @@
 const uniqueIdentifier = "JWK-WEDDING-TEMPLATE-V1";
 
-// : any를 붙여서 에러를 막습니다.
 export const weddingConfig: any = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
     description: "2026년 5월 23일 토요일 12시 30분",
-    ogImage: "/wedding/images/main.jpg", 
+    ogImage: "/wedding/images/main.jpg?v=finish", 
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier, 
   },
 
   main: {
     title: "Wedding Invitation",
-    image: "/wedding/images/main.jpg", 
+    image: "/wedding/images/main.jpg?v=finish", 
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -48,14 +47,14 @@ export const weddingConfig: any = {
   gallery: {
     layout: "grid",
     position: "bottom",
-    // [수정 완료] 스크린샷에 맞춰 /images/ 폴더를 다시 넣었습니다. 이제 나옵니다!
+    // [정답] 이미지는 images 폴더 안에 있으므로 주소에 꼭 넣어야 합니다!
     images: [
-      "/wedding/images/1.jpg",
-      "/wedding/images/2.jpg",
-      "/wedding/images/3.jpg",
-      "/wedding/images/4.jpg",
-      "/wedding/images/5.jpg",
-      "/wedding/images/6.jpg",
+      "/wedding/images/1.jpg?v=finish",
+      "/wedding/images/2.jpg?v=finish",
+      "/wedding/images/3.jpg?v=finish",
+      "/wedding/images/4.jpg?v=finish",
+      "/wedding/images/5.jpg?v=finish",
+      "/wedding/images/6.jpg?v=finish",
     ],
   },
 
