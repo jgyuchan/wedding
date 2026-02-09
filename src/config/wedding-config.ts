@@ -1,17 +1,20 @@
 const uniqueIdentifier = "JWK-WEDDING-TEMPLATE-V1";
 
+// : any를 붙여서 에러 방지
 export const weddingConfig: any = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
     description: "2026년 5월 23일 토요일 12시 30분",
-    ogImage: "/wedding/images/main.jpg?v=finish", 
+    // [무적 치트키] 인터넷 풀주소 사용
+    ogImage: "https://jgyuchan.github.io/wedding/images/main.jpg", 
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier, 
   },
 
   main: {
     title: "Wedding Invitation",
-    image: "/wedding/images/main.jpg?v=finish", 
+    // [무적 치트키] 이제 무조건 나옵니다
+    image: "https://jgyuchan.github.io/wedding/images/main.jpg", 
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
   },
@@ -47,14 +50,14 @@ export const weddingConfig: any = {
   gallery: {
     layout: "grid",
     position: "bottom",
-    // [정답] 이미지는 images 폴더 안에 있으므로 주소에 꼭 넣어야 합니다!
+    // [무적 치트키] 갤러리도 풀주소로 변경
     images: [
-      "/wedding/images/1.jpg?v=finish",
-      "/wedding/images/2.jpg?v=finish",
-      "/wedding/images/3.jpg?v=finish",
-      "/wedding/images/4.jpg?v=finish",
-      "/wedding/images/5.jpg?v=finish",
-      "/wedding/images/6.jpg?v=finish",
+      "https://jgyuchan.github.io/wedding/images/1.jpg",
+      "https://jgyuchan.github.io/wedding/images/2.jpg",
+      "https://jgyuchan.github.io/wedding/images/3.jpg",
+      "https://jgyuchan.github.io/wedding/images/4.jpg",
+      "https://jgyuchan.github.io/wedding/images/5.jpg",
+      "https://jgyuchan.github.io/wedding/images/6.jpg",
     ],
   },
 
