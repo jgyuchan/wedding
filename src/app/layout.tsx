@@ -8,31 +8,23 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // [기능 1] 화면 터치 시 노래 시작 시도
+  // 화면 터치 시 재생 시도
   useEffect(() => {
-    const playAudio = () => {
+    const startAudio = () => {
       if (audioRef.current) {
         audioRef.current.play()
-          .then(() => {
-            setIsPlaying(true);
-            // 재생 성공하면 이벤트 제거
-            document.removeEventListener('click', playAudio);
-            document.removeEventListener('touchstart', playAudio);
-          })
-          .catch((e) => console.log("자동 재생 막힘: 버튼을 눌러주세요"));
+          .then(() => setIsPlaying(true))
+          .catch(e => console.log("자동 재생 대기 중"));
       }
     };
-
-    document.addEventListener('click', playAudio);
-    document.addEventListener('touchstart', playAudio);
-
+    document.addEventListener('click', startAudio);
+    document.addEventListener('touchstart', startAudio);
     return () => {
-      document.removeEventListener('click', playAudio);
-      document.removeEventListener('touchstart', playAudio);
+      document.removeEventListener('click', startAudio);
+      document.removeEventListener('touchstart', startAudio);
     };
   }, []);
 
-  // [기능 2] 버튼 클릭 시 끄고 켜기
   const toggleMusic = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!audioRef.current) return;
@@ -55,40 +47,43 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
       <body>
         <GlobalStyle /><CacheManager />
         
-        {/* [위치 변경] 오른쪽 아래에 고정 (이제 안 가려집니다) */}
-        <div
+        {/* [강제 노출] 화면 하단에 고정된 뮤직 컨트롤러 */}
+        <div 
           onClick={toggleMusic}
           style={{
-            position: 'fixed', 
-            bottom: '30px',  // 바닥에서 30px 위
-            right: '20px',   // 오른쪽에서 20px 안쪽
-            zIndex: 99999,   // 무조건 제일 위에
+            position: 'fixed',
+            bottom: '20px',
+            left: '50%',
+            transform: 'translateX(-50%)', // 정중앙 정렬
+            zIndex: 999999, // 그 어떤 것보다 위에
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
-            background: 'rgba(0, 0, 0, 0.7)',
-            padding: '10px 15px',
-            borderRadius: '30px',
+            justifyContent: 'center',
+            gap: '10px',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)', // 진한 검정
             color: 'white',
+            padding: '12px 24px',
+            borderRadius: '50px',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.4)',
             cursor: 'pointer',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-            fontSize: '14px',
-            fontWeight: 'bold',
-            border: '1px solid rgba(255,255,255,0.3)'
+            border: '2px solid white',
+            width: 'max-content' // 내용물만큼만 크기 차지
           }}
         >
-          <span style={{ fontSize: '18px' }}>{isPlaying ? '🔊' : '🔇'}</span>
-          <span>{isPlaying ? 'BGM ON' : 'BGM OFF'}</span>
+          <span style={{ fontSize: '20px' }}>{isPlaying ? '🔊' : '🔇'}</span>
+          <span style={{ fontSize: '16px', fontWeight: 'bold' }}>
+            {isPlaying ? '노래 끄기' : '노래 켜기 (터치)'}
+          </span>
         </div>
 
-        {/* 오디오 플레이어 (풀주소 사용) */}
+        {/* 오디오 태그: 버전(?v=real_final)을 바꿔서 강제로 새로 읽게 함 */}
         <audio 
           ref={audioRef}
-          src="https://jgyuchan.github.io/wedding/bgm.mp3?v=final_fix" 
+          src="https://jgyuchan.github.io/wedding/bgm.mp3?v=real_final" 
           loop 
           preload="auto"
         />
-        
+
         {children}
       </body>
     </html>
