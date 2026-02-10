@@ -19,7 +19,7 @@ const InvitationSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' 
 
   return (
     <Container $bgColor={bgColor}>
-      {/* 💐 훨씬 자연스러운 수채화풍 꽃 장식 (SVG) */}
+      {/* 💐 수채화풍 꽃 장식 */}
       <SvgFlower width="120" height="80" viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.85">
           <path d="M75 95 C 75 95, 40 70, 30 50 C 20 30, 50 10, 75 25 C 100 10, 130 30, 120 50 C 110 70, 75 95, 75 95 Z" fill="#F4CCCC" stroke="#E6B8B7" strokeWidth="0.5"/>
@@ -35,15 +35,27 @@ const InvitationSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' 
       </SvgFlower>
 
       <EngTitle>OUR WEDDING</EngTitle>
-      <h2>초대합니다</h2>
-      <Msg>{weddingConfig.invitation.message}</Msg>
+      
+      {/* 💌 초대 문구를 하얀색 카드 안에 담았습니다 */}
+      <MessageCard>
+        <h2>초대합니다</h2>
+        <Msg>{weddingConfig.invitation.message}</Msg>
+      </MessageCard>
+
+      {/* 화환 사절 안내 (줄바꿈 완벽 고정) */}
+      <Notice>
+        ※ 쾌적한 예식 진행을 위해 화환은 정중히 사양하오니<br/>
+        축하해 주시는 따뜻한 마음만 감사히 받겠습니다.
+      </Notice>
+      
       <Names>
         <p>{groom.father} · {groom.mother} <small>의 차남</small> <strong>{groom.name}</strong></p>
         <p>{bride.father} · {bride.mother} <small>의 장녀</small> <strong>{bride.name}</strong></p>
       </Names>
+      
       <OpenBtn onClick={() => setShowModal(true)}>혼주에게 연락하기</OpenBtn>
 
-      {/* 팝업 모달 (기존 유지) */}
+      {/* 팝업 모달 */}
       {showModal && (
         <Overlay onClick={() => setShowModal(false)}>
           <Modal onClick={e => e.stopPropagation()}>
@@ -67,10 +79,59 @@ const InvitationSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' 
 };
 
 // --- 스타일 ---
-const Container = styled.section<{ $bgColor: string }>` padding: 4rem 1.5rem; text-align: center; background: ${p => p.$bgColor === 'beige' ? '#F8F6F2' : '#fff'}; display: flex; flex-direction: column; align-items: center; h2 { margin-bottom: 2rem; font-size: 1.3rem; color: #333; font-weight: 500; } `;
+
+const Container = styled.section<{ $bgColor: string }>` 
+  padding: 4rem 1.5rem; 
+  text-align: center; 
+  background: ${p => p.$bgColor === 'beige' ? '#F8F6F2' : '#fff'}; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+`;
+
 const SvgFlower = styled.svg` margin-bottom: 1rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05)); `;
-const EngTitle = styled.span` font-size: 0.9rem; color: #c4a986; letter-spacing: 2px; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; `;
-const Msg = styled.p` white-space: pre-line; margin-bottom: 3rem; color: #666; line-height: 2; font-size: 0.95rem; font-family: 'Noto Serif KR', serif; `;
+const EngTitle = styled.span` font-size: 0.9rem; color: #c4a986; letter-spacing: 2px; margin-bottom: 1.5rem; font-weight: 600; text-transform: uppercase; `;
+
+// 💌 메인 메시지 카드 스타일 (하얀색 박스 + 그림자)
+const MessageCard = styled.div`
+  background-color: white;
+  padding: 2.5rem 1.5rem;
+  border-radius: 8px; /* 둥근 모서리 */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 은은한 그림자 */
+  margin-bottom: 2.5rem;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #f0f0f0;
+
+  h2 { 
+    margin-bottom: 1.5rem; 
+    font-size: 1.3rem; 
+    color: #333; 
+    font-weight: 600; /* 제목 더 진하게 */
+  }
+`;
+
+const Msg = styled.p` 
+  white-space: pre-line; 
+  color: #555; /* 글자색 진하게 */
+  line-height: 2.2; /* 줄간격 넓게 시원하게 */
+  font-size: 1rem; 
+  font-family: 'Noto Serif KR', serif; 
+  font-weight: 500; /* 본문도 살짝 진하게 */
+`;
+
+// 📢 화환 사절 안내문 (줄바꿈 방지)
+const Notice = styled.p`
+  font-size: 0.85rem;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  word-break: keep-all; /* 단어 중간에 끊기지 않게 */
+  background: rgba(0,0,0,0.03);
+  padding: 1rem;
+  border-radius: 4px;
+`;
+
 const Names = styled.div` margin-bottom: 2.5rem; p { margin: 0.6rem 0; font-size: 1.1rem; color: #444; } small { font-size: 0.85rem; color: #888; margin: 0 0.5rem; } strong { font-weight: 600; color: #333; } `;
 const OpenBtn = styled.button` background: #e2d2be; color: #fff; border: none; padding: 0.8rem 2.5rem; border-radius: 50px; cursor: pointer; font-size: 0.95rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.2s; &:hover { background: #d4c0a8; } `;
 const Overlay = styled.div` position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 2000; backdrop-filter: blur(2px); `;
