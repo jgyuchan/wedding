@@ -19,44 +19,35 @@ const InvitationSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' 
 
   return (
     <Container $bgColor={bgColor}>
-      {/* 💐 풍성한 부케 장식 SVG */}
-      <SvgBouquet width="100" height="80" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g opacity="0.9">
-          <path d="M60 95C60 95 30 70 20 50C10 30 40 10 60 30C80 10 110 30 100 50C90 70 60 95 60 95Z" fill="#F4CCCC"/>
-          <circle cx="40" cy="40" r="15" fill="#EAD1DC" stroke="#D5A6BD" strokeWidth="1"/>
-          <circle cx="80" cy="40" r="15" fill="#EAD1DC" stroke="#D5A6BD" strokeWidth="1"/>
-          <circle cx="60" cy="25" r="18" fill="#F4CCCC" stroke="#EA9999" strokeWidth="1"/>
-          <circle cx="30" cy="60" r="12" fill="#FFF2CC" stroke="#D6B656" strokeWidth="1"/>
-          <circle cx="90" cy="60" r="12" fill="#FFF2CC" stroke="#D6B656" strokeWidth="1"/>
-          <circle cx="60" cy="65" r="10" fill="#D9EAD3" stroke="#B6D7A8" strokeWidth="1"/>
-          <path d="M60 95L40 75" stroke="#8FCE00" strokeWidth="2" strokeLinecap="round"/>
-          <path d="M60 95L80 75" stroke="#8FCE00" strokeWidth="2" strokeLinecap="round"/>
-          <path d="M20 50Q10 40 20 30" stroke="#8FCE00" strokeWidth="2" fill="none"/>
-          <path d="M100 50Q110 40 100 30" stroke="#8FCE00" strokeWidth="2" fill="none"/>
+      {/* 💐 훨씬 자연스러운 수채화풍 꽃 장식 (SVG) */}
+      <SvgFlower width="120" height="80" viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g opacity="0.85">
+          <path d="M75 95 C 75 95, 40 70, 30 50 C 20 30, 50 10, 75 25 C 100 10, 130 30, 120 50 C 110 70, 75 95, 75 95 Z" fill="#F4CCCC" stroke="#E6B8B7" strokeWidth="0.5"/>
+          <path d="M50 60 Q 35 45, 50 30 Q 65 45, 50 60 Z" fill="#EAD1DC" stroke="#D5A6BD" strokeWidth="0.5"/>
+          <path d="M100 60 Q 115 45, 100 30 Q 85 45, 100 60 Z" fill="#EAD1DC" stroke="#D5A6BD" strokeWidth="0.5"/>
+          <circle cx="75" cy="40" r="12" fill="#F4CCCC" stroke="#EA9999" strokeWidth="0.5"/>
+          <path d="M60 70 Q 75 80, 90 70" stroke="#8FCE00" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+          <path d="M75 95 L 60 80" stroke="#8FCE00" strokeWidth="1.5" strokeLinecap="round"/>
+          <path d="M75 95 L 90 80" stroke="#8FCE00" strokeWidth="1.5" strokeLinecap="round"/>
+          <circle cx="45" cy="25" r="3" fill="#FFF2CC"/>
+          <circle cx="105" cy="25" r="3" fill="#FFF2CC"/>
         </g>
-      </SvgBouquet>
+      </SvgFlower>
 
       <EngTitle>OUR WEDDING</EngTitle>
-      
       <h2>초대합니다</h2>
-      
       <Msg>{weddingConfig.invitation.message}</Msg>
-      
       <Names>
         <p>{groom.father} · {groom.mother} <small>의 차남</small> <strong>{groom.name}</strong></p>
         <p>{bride.father} · {bride.mother} <small>의 장녀</small> <strong>{bride.name}</strong></p>
       </Names>
-      
       <OpenBtn onClick={() => setShowModal(true)}>혼주에게 연락하기</OpenBtn>
 
-      {/* 팝업 모달 */}
+      {/* 팝업 모달 (기존 유지) */}
       {showModal && (
         <Overlay onClick={() => setShowModal(false)}>
           <Modal onClick={e => e.stopPropagation()}>
-            <Header>
-              <h3>혼주에게 연락하기</h3>
-              <button onClick={() => setShowModal(false)}>×</button>
-            </Header>
+            <Header><h3>혼주에게 연락하기</h3><button onClick={() => setShowModal(false)}>×</button></Header>
             <Body>
               <h4>신랑측 혼주</h4>
               <ContactRow label="신랑" name={groom.name} tel={groom.tel} />
@@ -75,38 +66,10 @@ const InvitationSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' 
   );
 };
 
-// --- 스타일 컴포넌트 ---
-
-const Container = styled.section<{ $bgColor: string }>` 
-  padding: 4rem 1.5rem; 
-  text-align: center; 
-  background: ${p => p.$bgColor === 'beige' ? '#F8F6F2' : '#fff'}; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  h2 { 
-    margin-bottom: 2rem; 
-    font-size: 1.3rem; 
-    color: #333; 
-    font-weight: 500;
-  } 
-`;
-
-const SvgBouquet = styled.svg`
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 3px 5px rgba(0,0,0,0.1));
-`;
-
-const EngTitle = styled.span`
-  font-size: 0.9rem;
-  color: #c4a986;
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-`;
-
+// --- 스타일 ---
+const Container = styled.section<{ $bgColor: string }>` padding: 4rem 1.5rem; text-align: center; background: ${p => p.$bgColor === 'beige' ? '#F8F6F2' : '#fff'}; display: flex; flex-direction: column; align-items: center; h2 { margin-bottom: 2rem; font-size: 1.3rem; color: #333; font-weight: 500; } `;
+const SvgFlower = styled.svg` margin-bottom: 1rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05)); `;
+const EngTitle = styled.span` font-size: 0.9rem; color: #c4a986; letter-spacing: 2px; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; `;
 const Msg = styled.p` white-space: pre-line; margin-bottom: 3rem; color: #666; line-height: 2; font-size: 0.95rem; font-family: 'Noto Serif KR', serif; `;
 const Names = styled.div` margin-bottom: 2.5rem; p { margin: 0.6rem 0; font-size: 1.1rem; color: #444; } small { font-size: 0.85rem; color: #888; margin: 0 0.5rem; } strong { font-weight: 600; color: #333; } `;
 const OpenBtn = styled.button` background: #e2d2be; color: #fff; border: none; padding: 0.8rem 2.5rem; border-radius: 50px; cursor: pointer; font-size: 0.95rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.2s; &:hover { background: #d4c0a8; } `;
