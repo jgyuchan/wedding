@@ -11,10 +11,14 @@ export const weddingConfig: any = {
 
   main: {
     title: "Wedding Invitation",
-    // 메인 사진은 나오니까 이 주소가 정답입니다.
     image: "https://jgyuchan.github.io/wedding/images/main.jpg", 
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
+  },
+  
+  // [추가] 노래 주소 명시
+  music: {
+    src: "https://jgyuchan.github.io/wedding/bgm.mp3?v=music_fix"
   },
 
   intro: {
@@ -48,7 +52,6 @@ export const weddingConfig: any = {
   gallery: {
     layout: "grid",
     position: "bottom",
-    // [중요] 갤러리도 메인 사진처럼 전체 주소를 씁니다. 이제 안 나올 수가 없습니다.
     images: [
       "https://jgyuchan.github.io/wedding/images/1.jpg",
       "https://jgyuchan.github.io/wedding/images/2.jpg",
