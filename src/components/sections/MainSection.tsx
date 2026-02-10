@@ -1,15 +1,64 @@
 'use client';
-import React from 'react';
-import styled from 'styled-components';
+
+import React, { useState, useRef, useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
 import { weddingConfig } from '../../config/wedding-config';
 
 const MainSection = () => {
   const { main } = weddingConfig;
-  
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  // [기능 1] 화면 터치 시 노래 시작
+  useEffect(() => {
+    const startAudio = () => {
+      if (audioRef.current) {
+        audioRef.current.play()
+          .then(() => setIsPlaying(true))
+          .catch(e => console.log("자동 재생 대기 중"));
+      }
+    };
+    // 화면 어디든 터치하면 재생 시도
+    document.addEventListener('click', startAudio, { once: true });
+    document.addEventListener('touchstart', startAudio, { once: true });
+
+    return () => {
+      document.removeEventListener('click', startAudio);
+      document.removeEventListener('touchstart', startAudio);
+    };
+  }, []);
+
+  // [기능 2] 버튼 클릭 핸들러
+  const toggleMusic = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
   return (
     <Section>
+      {/* 🎵 음악 플레이어 버튼 (메인 섹션 안에 직접 넣음) */}
+      <MusicButton onClick={toggleMusic} $isPlaying={isPlaying}>
+        {isPlaying ? '🔊' : '🔇'}
+      </MusicButton>
+
+      {/* 🎵 오디오 태그 (숨김) - 주소 직접 지정 */}
+      <audio 
+        ref={audioRef} 
+        src="/wedding/bgm.mp3" 
+        loop 
+        preload="auto"
+      />
+
       <ImageContainer>
-        {/* height: auto로 설정하여 사진이 잘리지 않고 원본 비율대로 다 나옵니다 */}
+        {/* 얼굴 잘리지 않게 height: auto 적용됨 */}
         <MainImage src={main.image} alt="Main Wedding" />
       </ImageContainer>
       
@@ -25,26 +74,58 @@ const MainSection = () => {
   );
 };
 
+// --- 스타일 ---
+
 const Section = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  position: relative; // 버튼 위치 기준점
+`;
+
+// 🎵 둥둥 떠다니는 음악 버튼 스타일
+const pulse = keyframes`
+  0% { box-shadow: 0 0 0 0 rgba(226, 210, 190, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(226, 210, 190, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(226, 210, 190, 0); }
+`;
+
+const MusicButton = styled.button<{ $isPlaying: boolean }>`
+  position: fixed; // 화면에 고정
+  bottom: 30px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: ${props => props.$isPlaying ? 'rgba(0,0,0,0.7)' : '#e2d2be'};
+  color: white;
+  border: 2px solid white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999999; // 무조건 맨 위
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  animation: ${props => props.$isPlaying ? 'none' : pulse} 2s infinite;
+  
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 const ImageContainer = styled.div`
   width: 100%;
-  /* 높이를 고정하지 않고 사진 크기에 맞춥니다 */
-  height: auto; 
+  height: auto;
   display: flex;
   justify-content: center;
-  overflow: hidden;
 `;
 
 const MainImage = styled.img`
   width: 100%;
-  height: auto; /* 사진 원본 비율 유지 */
-  object-fit: contain; /* 사진 전체가 다 보이게 설정 */
+  height: auto;
+  object-fit: contain;
 `;
 
 const Content = styled.div`
