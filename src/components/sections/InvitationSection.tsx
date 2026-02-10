@@ -36,13 +36,20 @@ const InvitationSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' 
 
       <EngTitle>OUR WEDDING</EngTitle>
       
-      {/* 💌 초대 문구를 하얀색 카드 안에 담았습니다 */}
+      {/* 💌 초대 문구 카드 (중복 문구 삭제됨) */}
       <MessageCard>
         <h2>초대합니다</h2>
-        <Msg>{weddingConfig.invitation.message}</Msg>
+        <Msg>
+          저희 두 사람이 사랑과 믿음으로<br/>
+          한 가정을 이루게 되었습니다.<br/>
+          <br/>
+          바쁘시더라도 부디 오셔서<br/>
+          저희의 앞날을 축복해 주시고<br/>
+          격려해 주시면 더없는 기쁨이 되겠습니다.
+        </Msg>
       </MessageCard>
 
-      {/* 화환 사절 안내 (줄바꿈 완벽 고정) */}
+      {/* 📢 화환 사절 안내문 (글자 크기 키움!) */}
       <Notice>
         ※ 쾌적한 예식 진행을 위해 화환은 정중히 사양하오니<br/>
         축하해 주시는 따뜻한 마음만 감사히 받겠습니다.
@@ -92,12 +99,12 @@ const Container = styled.section<{ $bgColor: string }>`
 const SvgFlower = styled.svg` margin-bottom: 1rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05)); `;
 const EngTitle = styled.span` font-size: 0.9rem; color: #c4a986; letter-spacing: 2px; margin-bottom: 1.5rem; font-weight: 600; text-transform: uppercase; `;
 
-// 💌 메인 메시지 카드 스타일 (하얀색 박스 + 그림자)
+// 💌 메인 메시지 카드 (줄바꿈이 예쁘게 나오도록 word-break 설정)
 const MessageCard = styled.div`
   background-color: white;
   padding: 2.5rem 1.5rem;
-  border-radius: 8px; /* 둥근 모서리 */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 은은한 그림자 */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   margin-bottom: 2.5rem;
   width: 100%;
   max-width: 500px;
@@ -107,29 +114,30 @@ const MessageCard = styled.div`
     margin-bottom: 1.5rem; 
     font-size: 1.3rem; 
     color: #333; 
-    font-weight: 600; /* 제목 더 진하게 */
+    font-weight: 600; 
   }
 `;
 
 const Msg = styled.p` 
-  white-space: pre-line; 
-  color: #555; /* 글자색 진하게 */
-  line-height: 2.2; /* 줄간격 넓게 시원하게 */
+  color: #555; 
+  line-height: 2.2; 
   font-size: 1rem; 
   font-family: 'Noto Serif KR', serif; 
-  font-weight: 500; /* 본문도 살짝 진하게 */
+  font-weight: 500;
+  word-break: keep-all; /* 단어 단위로 줄바꿈 (글자 끊김 방지) */
 `;
 
-// 📢 화환 사절 안내문 (줄바꿈 방지)
+// 📢 화환 사절 안내문 (크기 키움 & 글씨 진하게)
 const Notice = styled.p`
-  font-size: 0.85rem;
-  color: #888;
+  font-size: 0.95rem; /* 기존 0.85rem -> 0.95rem로 확대 */
+  color: #666;        /* 색상도 조금 더 진하게 */
   line-height: 1.6;
   margin-bottom: 3rem;
-  word-break: keep-all; /* 단어 중간에 끊기지 않게 */
-  background: rgba(0,0,0,0.03);
-  padding: 1rem;
-  border-radius: 4px;
+  word-break: keep-all;
+  background: #f9f9f9; /* 배경색 살짝 더 밝게 */
+  padding: 1.2rem;     /* 여백도 더 넉넉하게 */
+  border-radius: 6px;
+  font-weight: 500;    /* 글씨 두께감 추가 */
 `;
 
 const Names = styled.div` margin-bottom: 2.5rem; p { margin: 0.6rem 0; font-size: 1.1rem; color: #444; } small { font-size: 0.85rem; color: #888; margin: 0 0.5rem; } strong { font-weight: 600; color: #333; } `;
