@@ -59,7 +59,7 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
             <TransportTitle>1호선 부천역에서 오실 때</TransportTitle>
             <TransportText>• 3번 출구 → 소신여객터미널에서 탑승</TransportText>
             <TransportText>• <Highlight>일반버스 3번</Highlight> 승차</TransportText>
-            <TransportText>• '조마루삼거리·원미동교회' 하차</TransportText>
+            <TransportText>• '조마루삼거리' 하차</TransportText>
           </TransportDetail>
         </TransportItem>
 
@@ -73,7 +73,7 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
             <TransportText>• 4번 출구 → 앞 버스정류장에서 탑승</TransportText>
             <TransportText>• <Highlight>마을버스 013-1, 013-2번</Highlight></TransportText>
             <TransportText>• <Highlight>일반버스 3, 56-1번</Highlight> 승차</TransportText>
-            <TransportText>• '조마루삼거리·원미동교회' 하차</TransportText>
+            <TransportText>• '조마루삼거리' 하차</TransportText>
           </TransportDetail>
         </TransportItem>
 
