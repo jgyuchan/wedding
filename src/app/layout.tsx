@@ -8,22 +8,21 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // [기능 1] 화면 터치 시 노래 시작 (브라우저 정책 우회)
+  // [기능 1] 화면 터치 시 노래 시작 시도
   useEffect(() => {
     const playAudio = () => {
       if (audioRef.current) {
         audioRef.current.play()
           .then(() => {
             setIsPlaying(true);
-            // 한 번 재생되면 이벤트 리스너 제거 (불필요한 실행 방지)
+            // 재생 성공하면 이벤트 제거
             document.removeEventListener('click', playAudio);
             document.removeEventListener('touchstart', playAudio);
           })
-          .catch((e) => console.log("자동 재생 대기 중... 사용자가 터치해야 함"));
+          .catch((e) => console.log("자동 재생 막힘: 버튼을 눌러주세요"));
       }
     };
 
-    // 화면 어디든 클릭하거나 터치하면 노래 시작 시도
     document.addEventListener('click', playAudio);
     document.addEventListener('touchstart', playAudio);
 
@@ -33,9 +32,9 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
     };
   }, []);
 
-  // [기능 2] 음악 끄기/켜기 버튼 기능
+  // [기능 2] 버튼 클릭 시 끄고 켜기
   const toggleMusic = (e: React.MouseEvent) => {
-    e.stopPropagation(); // 버튼 누를 때는 다른 터치 이벤트 방지
+    e.stopPropagation();
     if (!audioRef.current) return;
 
     if (isPlaying) {
@@ -56,38 +55,36 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
       <body>
         <GlobalStyle /><CacheManager />
         
-        {/* [강력해진 음악 버튼] 검은색 배경으로 변경하여 눈에 확 띄게 함 */}
-        <button 
+        {/* [위치 변경] 오른쪽 아래에 고정 (이제 안 가려집니다) */}
+        <div
           onClick={toggleMusic}
           style={{
             position: 'fixed', 
-            top: '15px', 
-            right: '15px', 
-            zIndex: 99999, // 제일 위에 표시
-            background: 'rgba(0, 0, 0, 0.7)', // 반투명 검은색
-            border: '2px solid white',
-            borderRadius: '50%',
-            width: '50px',
-            height: '50px',
-            fontSize: '24px',
+            bottom: '30px',  // 바닥에서 30px 위
+            right: '20px',   // 오른쪽에서 20px 안쪽
+            zIndex: 99999,   // 무조건 제일 위에
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: 'rgba(0, 0, 0, 0.7)',
+            padding: '10px 15px',
+            borderRadius: '30px',
             color: 'white',
             cursor: 'pointer',
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
-            transition: 'all 0.3s ease'
+            boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+            fontSize: '14px',
+            fontWeight: 'bold',
+            border: '1px solid rgba(255,255,255,0.3)'
           }}
-          aria-label={isPlaying ? "배경음악 끄기" : "배경음악 켜기"}
         >
-          {isPlaying ? '♪' : '✕'}
-        </button>
+          <span style={{ fontSize: '18px' }}>{isPlaying ? '🔊' : '🔇'}</span>
+          <span>{isPlaying ? 'BGM ON' : 'BGM OFF'}</span>
+        </div>
 
-        {/* 노래 플레이어 (화면에는 안 보임) */}
-        {/* 파일 경로가 맞다면 무조건 나옵니다. */}
+        {/* 오디오 플레이어 (풀주소 사용) */}
         <audio 
           ref={audioRef}
-          src="https://jgyuchan.github.io/wedding/bgm.mp3" 
+          src="https://jgyuchan.github.io/wedding/bgm.mp3?v=final_fix" 
           loop 
           preload="auto"
         />
