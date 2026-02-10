@@ -1,11 +1,9 @@
 const uniqueIdentifier = "JWK-WEDDING-TEMPLATE-V1";
 
-// : any를 붙여서 에러 방지
 export const weddingConfig: any = {
   meta: {
     title: "❤️우리 결혼 합니다❤️",
     description: "2026년 5월 23일 토요일 12시 30분",
-    // [무적 치트키] 인터넷 풀주소 사용
     ogImage: "https://jgyuchan.github.io/wedding/images/main.jpg", 
     noIndex: true,
     _jwk_watermark_id: uniqueIdentifier, 
@@ -13,7 +11,7 @@ export const weddingConfig: any = {
 
   main: {
     title: "Wedding Invitation",
-    // [무적 치트키] 이제 무조건 나옵니다
+    // 메인 사진은 나오니까 이 주소가 정답입니다.
     image: "https://jgyuchan.github.io/wedding/images/main.jpg", 
     date: "2026년 5월 23일 토요일 12시 30분",
     venue: "원미동교회 본당"
@@ -50,7 +48,7 @@ export const weddingConfig: any = {
   gallery: {
     layout: "grid",
     position: "bottom",
-    // [무적 치트키] 갤러리도 풀주소로 변경
+    // [중요] 갤러리도 메인 사진처럼 전체 주소를 씁니다. 이제 안 나올 수가 없습니다.
     images: [
       "https://jgyuchan.github.io/wedding/images/1.jpg",
       "https://jgyuchan.github.io/wedding/images/2.jpg",
