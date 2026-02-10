@@ -19,7 +19,7 @@ const InvitationSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' 
 
   return (
     <Container $bgColor={bgColor}>
-      {/* 💐 부케 장식 */}
+      {/* 💐 풍성한 부케 장식 SVG */}
       <SvgBouquet width="100" height="80" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.9">
           <path d="M60 95C60 95 30 70 20 50C10 30 40 10 60 30C80 10 110 30 100 50C90 70 60 95 60 95Z" fill="#F4CCCC"/>
