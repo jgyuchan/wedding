@@ -11,6 +11,7 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
   const [mapLoaded, setMapLoaded] = useState(false);
   const { venue } = weddingConfig;
   
+  // 지도 로딩
   useEffect(() => {
     const script = document.createElement('script');
     script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`;
@@ -19,6 +20,7 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
     document.head.appendChild(script);
   }, []);
   
+  // 마커 찍기
   useEffect(() => {
     if (!mapLoaded || !mapRef.current) return;
     const loc = new window.naver.maps.LatLng(venue.coordinates.latitude, venue.coordinates.longitude);
@@ -26,6 +28,7 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
     new window.naver.maps.Marker({ position: loc, map: map });
   }, [mapLoaded, venue]);
 
+  // 네비게이션 버튼
   const nav = (t: 'naver' | 'kakao' | 'tmap') => {
     const { latitude: la, longitude: lo } = venue.coordinates;
     const sName = encodeURIComponent(venue.name);
@@ -49,35 +52,34 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
       </ButtonContainer>
 
       <TransportInfoBox>
-        <TransportItem>
-          <Icon>🚇</Icon>
-          <TransportDetail>
-            <TransportTitle>지하철 이용 시</TransportTitle>
-            {venue.transportation.subway.split('\n').map((line: string, i: number) => (
-              <TransportText key={i}>{line}</TransportText>
-            ))}
-          </TransportDetail>
-        </TransportItem>
-
-        <DividerLine />
-
+        {/* 1호선 부천역 출발 */}
         <TransportItem>
           <Icon>🚌</Icon>
           <TransportDetail>
-            <TransportTitle>버스 이용 시</TransportTitle>
-            {venue.transportation.bus.split('\n').map((line: string, i: number) => (
-              <TransportText 
-                key={i} 
-                $isBullet={line.trim().startsWith('○') || line.trim().startsWith('·')}
-              >
-                {line}
-              </TransportText>
-            ))}
+            <TransportTitle>1호선 부천역에서 오실 때</TransportTitle>
+            <TransportText>• 3번 출구 → 소신여객터미널에서 탑승</TransportText>
+            <TransportText>• <Highlight>일반버스 3번</Highlight> 승차</TransportText>
+            <TransportText>• '조마루삼거리·원미동교회' 하차</TransportText>
           </TransportDetail>
         </TransportItem>
 
         <DividerLine />
 
+        {/* 7호선 종합운동장역 출발 */}
+        <TransportItem>
+          <Icon>🚌</Icon>
+          <TransportDetail>
+            <TransportTitle>7호선 부천종합운동장역에서 오실 때</TransportTitle>
+            <TransportText>• 4번 출구 → 앞 버스정류장에서 탑승</TransportText>
+            <TransportText>• <Highlight>마을버스 013-1, 013-2번</Highlight></TransportText>
+            <TransportText>• <Highlight>일반버스 3, 56-1번</Highlight> 승차</TransportText>
+            <TransportText>• '조마루삼거리·원미동교회' 하차</TransportText>
+          </TransportDetail>
+        </TransportItem>
+
+        <DividerLine />
+
+        {/* 주차 */}
         <TransportItem>
           <Icon>🅿️</Icon>
           <TransportDetail>
@@ -90,11 +92,8 @@ const VenueSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' }) =>
   );
 };
 
-// --- 스타일 컴포넌트 ---
-
-const Section = styled.section<{ $bgColor: string }>`
-  padding: 4rem 1.5rem; text-align: center; background-color: ${props => props.$bgColor === 'beige' ? '#F8F6F2' : 'white'};
-`;
+// --- 스타일 ---
+const Section = styled.section<{ $bgColor: string }>` padding: 4rem 1.5rem; text-align: center; background-color: ${props => props.$bgColor === 'beige' ? '#F8F6F2' : 'white'}; `;
 const Title = styled.h2` font-size: 1.5rem; font-weight: 500; margin-bottom: 1.5rem; color: #333; `;
 const VenueName = styled.h3` font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: #333; `;
 const Address = styled.p` font-size: 1rem; color: #666; margin-bottom: 2rem; `;
@@ -106,7 +105,8 @@ const TransportItem = styled.div` display: flex; align-items: flex-start; gap: 1
 const Icon = styled.div` font-size: 1.6rem; line-height: 1; padding-top: 3px; `;
 const TransportDetail = styled.div` flex: 1; `;
 const TransportTitle = styled.h4` font-size: 1rem; font-weight: 700; color: #333; margin-bottom: 0.5rem; `;
-const TransportText = styled.p<{ $isBullet?: boolean }>` font-size: 0.95rem; color: #555; line-height: 1.6; margin-bottom: 0.2rem; padding-left: ${props => props.$isBullet ? '0.8rem' : '0'}; text-indent: ${props => props.$isBullet ? '-0.8rem' : '0'}; `;
+const TransportText = styled.p` font-size: 0.95rem; color: #555; line-height: 1.8; margin-bottom: 0.2rem; `;
+const Highlight = styled.span` font-weight: 600; color: #c4a986; `; // 버스 번호 강조색
 const DividerLine = styled.div` height: 1px; background-color: #eee; margin: 1.2rem 0; `;
 
 export default VenueSection;
