@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
       <head><meta name="generator" content="Wedding-Invitation" /></head>
       <body>
         <GlobalStyle /><CacheManager />
-        {/* [무적 치트키] 노래 경로도 인터넷 전체 주소로 변경 */}
+        {/* bgm.mp3는 public 폴더 바로 아래에 있으므로 이 주소가 맞습니다 */}
         <audio src="https://jgyuchan.github.io/wedding/bgm.mp3" autoPlay loop style={{ display: 'none' }} />
         {children}
       </body>
