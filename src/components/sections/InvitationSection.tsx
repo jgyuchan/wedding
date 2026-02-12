@@ -53,7 +53,7 @@ const InvitationSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' 
       <Notice>
      ※ 쾌적한 예식 진행을 위해<br/>
         화환은 정중히 사양하오니<br/>
-        축하해 주시는 따뜻한 마음만 감사히 받겠습니다.
+        <span className="last-line">축하해 주시는 따뜻한 마음만 감사히 받겠습니다.</span>
       </Notice>
       
       <Names>
