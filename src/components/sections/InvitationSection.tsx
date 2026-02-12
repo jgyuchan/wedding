@@ -51,7 +51,8 @@ const InvitationSection = ({ bgColor = 'white' }: { bgColor?: 'white' | 'beige' 
 
       {/* 📢 화환 사절 안내문 (글자 크기 키움!) */}
       <Notice>
-        ※ 쾌적한 예식 진행을 위해 화환은 정중히 사양하오니<br/>
+     ※ 쾌적한 예식 진행을 위해<br/>
+        화환은 정중히 사양하오니<br/>
         축하해 주시는 따뜻한 마음만 감사히 받겠습니다.
       </Notice>
       
