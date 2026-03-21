@@ -59,6 +59,20 @@ export const weddingConfig: any = {
       "https://jgyuchan.github.io/wedding/images/4.jpg",
       "https://jgyuchan.github.io/wedding/images/5.jpg",
       "https://jgyuchan.github.io/wedding/images/6.jpg",
+      "https://jgyuchan.github.io/wedding/images/7.jpg",
+      "https://jgyuchan.github.io/wedding/images/8.jpg",
+      "https://jgyuchan.github.io/wedding/images/9.jpg",
+      "https://jgyuchan.github.io/wedding/images/10.jpg",
+      "https://jgyuchan.github.io/wedding/images/11.jpg",
+      "https://jgyuchan.github.io/wedding/images/12.jpg",
+      "https://jgyuchan.github.io/wedding/images/13.jpg",
+      "https://jgyuchan.github.io/wedding/images/14.jpg",
+      "https://jgyuchan.github.io/wedding/images/15.jpg",
+      "https://jgyuchan.github.io/wedding/images/16.jpg",
+      "https://jgyuchan.github.io/wedding/images/17.jpg",
+      "https://jgyuchan.github.io/wedding/images/18.jpg",
+
+
     ],
   },
 
