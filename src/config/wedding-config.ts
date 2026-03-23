@@ -71,8 +71,9 @@ export const weddingConfig: any = {
       "https://jgyuchan.github.io/wedding/images/16.jpg",
       "https://jgyuchan.github.io/wedding/images/17.jpg",
       "https://jgyuchan.github.io/wedding/images/18.jpg",
-
-
+      "https://jgyuchan.github.io/wedding/images/19.jpg",
+      "https://jgyuchan.github.io/wedding/images/20.jpg",
+      "https://jgyuchan.github.io/wedding/images/21.jpg",
     ],
   },
 
